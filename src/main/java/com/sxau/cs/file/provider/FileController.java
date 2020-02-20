@@ -1,4 +1,4 @@
-package com.sxau.cs.file;
+package com.sxau.cs.file.provider;
 
 public class FileController {
     //hhh
