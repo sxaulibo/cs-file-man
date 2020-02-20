@@ -1,4 +1,4 @@
-package com.sxau.cs.file.provide;
+package com.sxau.cs.file.provider;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
