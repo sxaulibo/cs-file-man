@@ -3,6 +3,7 @@ package com.sxau.cs.file.biz.impl;
 import com.sxau.cs.file.provider.model.request.BaseUserRequest;
 import com.sxau.cs.file.provider.model.request.FileCreateRequest;
 import com.sxau.cs.file.provider.model.request.FileListRequest;
+import com.sxau.cs.file.provider.model.request.FilePathRequest;
 import com.sxau.cs.file.provider.model.response.FileInfoResponse;
 import com.sxau.cs.file.provider.model.response.FileListResponse;
 import org.springframework.stereotype.Component;
@@ -12,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Component
 public class FileBizImpl implements com.sxau.cs.file.biz.FileBiz {
 
-    public FileInfoResponse infoByPath(BaseUserRequest baseUserRequest) {
-        checkTokenProcess(baseUserRequest.getToken());
+    public FileInfoResponse infoByPath(FilePathRequest filePathRequest) {
+        checkTokenProcess(filePathRequest.getToken());
         return null;
     }
 
