@@ -1,5 +1,7 @@
 package com.sxau.cs.file.provider;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.sxau.cs.file.service.FileService;
 import com.sxau.cs.file.service.Impl.FileServiceImpl;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,13 +20,10 @@ public class RestController1 {
 
 
     @RequestMapping("/nameLogin")
-    public String nameLogin(String name, String pwd) {
-        Map m1 = new HashMap();
-        m1.put("libo", "501090LB");
-        m1.put("lixin", "lixin");
-        if (m1.get(name) != pwd) {
-            return "error";
-        }
+    public String nameLogin(String json) {
+        //从字符串解析JSON对象  eg"{\"runoob\":\"菜鸟教程\"}"  实际  {"name": "test", "password":"123456"}
+        JSONObject obj = JSON.parseObject(json);
+//        obj.getString(name);
 
         return "ok";
     }
