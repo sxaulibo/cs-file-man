@@ -15,7 +15,7 @@
             <!-- 数据源工厂配置，使用工厂来创建数据源 -->
             <dataSource type="org.apache.ibatis.datasource.pooled.PooledDataSourceFactory">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/fileInfo?useSSL=false&amp;serverTimezone=UTC"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/csfile?useSSL=false&amp;serverTimezone=UTC"/>
                 <property name="username" value="root"/>
                 <property name="password" value="root"/>
             </dataSource>
