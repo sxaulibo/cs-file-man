@@ -2,7 +2,7 @@ package com.sxau.cs.file.provider.model.response;
 
 import java.io.Serializable;
 
-class FileInfo implements Serializable {
+public class FileInfo implements Serializable {
 
     private static final long serialVersionUID = -8739941261469821012L;
 

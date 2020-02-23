@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="UserMapper">
+<mapper namespace="com.sxau.cs.file.service.mapper.UserMapper">
 
-        <insert id="insertFile" parameterType="com.sxau.homework.service.bean.FileInfo">
+    <resultMap id="lixin" type="com.sxau.homework.service.bean.FileInfo">
+        <id property="id" column="fileInfo_id" />
+        <result property="fileCode" column="fileInfo_fileCode"/>
+        <result property="fileName" column="fileInfo_fileName"/>
+        <result property="path" column="fileInfo_path"/>
+    </resultMap>
+
+        <insert id="insertFile" parameterType="com.sxau.cs.file.provider.model.response.FileInfo">
             INSERT INTO fileInfo_tbl (fileInfo_fileCode,fileInfo_fileName,fileInfo_path)
             VALUES (#{fileCode},#{fileName},#{path})
         </insert>
@@ -14,12 +21,11 @@
              WHERE fileInfo_fileCode = #{fileCode2}
         </update>
 
-        <select id="queryByFileCode" parameterType="String" resultType="com.sxau.homework.service.bean.FileInfo">
-             SELECT fileInfo_id as "id",
-             fileInfo_fileCode as "fileCode",
-             fileInfo_fileName as "fileName",
-             fileInfo_path as "path"
+        <select id="queryByFileCode" parameterType="String" resultType="lixin">
+             SELECT fileInfo_id,
+             fileInfo_fileCode,
+             fileInfo_fileName,
+             fileInfo_path
              FROM fileInfo_tbl WHERE fileInfo_fileCode =#{fileInfo}
         </select>
-
 </mapper>
