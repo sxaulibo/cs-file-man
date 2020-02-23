@@ -10,4 +10,10 @@ public interface UserInfoService {
      * @return     对象userInfo
      */
     UserInfo queryUserInfoByName(String name);
+
+    /**
+     * token校验
+     * @return
+     */
+    boolean tokenVerification(String token);
 }

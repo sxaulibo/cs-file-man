@@ -40,6 +40,18 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     }
 
+    @Override
+    public boolean tokenVerification(String token) {
+        //判断查询出来的list数
+        return userQueryByToken(token).size() != 0;
+    }
+
+    private List<UserInfo> userQueryByToken(String token) {
+        //查询出数据库是否有这个token
+
+    }
+
+
     /**
      * token 生成11位
      * @return
