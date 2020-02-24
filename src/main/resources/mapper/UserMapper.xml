@@ -3,11 +3,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sxau.cs.file.service.mapper.UserMapper">
 
-    <resultMap id="lixin" type="com.sxau.homework.service.bean.FileInfo">
-        <id property="id" column="fileInfo_id" />
-        <result property="fileCode" column="fileInfo_fileCode"/>
-        <result property="fileName" column="fileInfo_fileName"/>
-        <result property="path" column="fileInfo_path"/>
+    <resultMap id="libo" type="com.sxau.cs.file.service.bean.UserInfo">
+        <result property="name" column="file_name" />
+        <result property="password" column="file_password"/>
+        <result property="rootFid" column="file_rootfid"/>
+        <result property="token" column="file_token"/>
     </resultMap>
 
         <insert id="insertFile" parameterType="com.sxau.cs.file.provider.model.response.FileInfo">
@@ -21,11 +21,8 @@
              WHERE fileInfo_fileCode = #{fileCode2}
         </update>
 
-        <select id="queryByFileCode" parameterType="String" resultType="lixin">
-             SELECT fileInfo_id,
-             fileInfo_fileCode,
-             fileInfo_fileName,
-             fileInfo_path
-             FROM fileInfo_tbl WHERE fileInfo_fileCode =#{fileInfo}
+        <select id="queryUserInfoByName" parameterType="String" resultType="libo">
+             SELECT *
+             FROM runoob_tbl WHERE file_name = #{name}
         </select>
 </mapper>

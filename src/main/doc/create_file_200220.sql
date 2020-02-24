@@ -10,3 +10,6 @@ CREATE TABLE IF NOT EXISTS `runoob_tbl`(
 INSERT INTO runoob_tbl ( file_rootfid, file_name,file_password,file_token)
                        VALUES
                        ( "197568495618", "root","root","" );
+注意这两个语句，在cmd窗口显示是一样的区分不开
+select * from  runoob_tbl;
+select * from  runoob_tb1;
