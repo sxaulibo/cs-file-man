@@ -1,6 +1,5 @@
 package com.sxau.cs.file.biz.impl;
 
-import com.sxau.cs.file.provider.model.request.BaseUserRequest;
 import com.sxau.cs.file.provider.model.request.FileCreateRequest;
 import com.sxau.cs.file.provider.model.request.FileListRequest;
 import com.sxau.cs.file.provider.model.request.FilePathRequest;
@@ -25,7 +24,7 @@ public class FileBizImpl implements com.sxau.cs.file.biz.FileBiz {
         return null;
     }
 
-    public FileInfoResponse createDir(FileCreateRequest fileCreateRequest){
+    public FileInfoResponse createDir(FileCreateRequest fileCreateRequest) {
         checkTokenProcess(fileCreateRequest.getToken());
         return null;
     }
