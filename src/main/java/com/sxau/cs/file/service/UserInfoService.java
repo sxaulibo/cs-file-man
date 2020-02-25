@@ -16,4 +16,12 @@ public interface UserInfoService {
      * @return
      */
     boolean tokenVerification(String token);
+
+    /**
+     *  x
+     *
+     * @param userId
+     * @return
+     */
+    long getRootFileIdByUserId(String userId);
 }
