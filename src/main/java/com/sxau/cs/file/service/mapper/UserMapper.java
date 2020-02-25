@@ -8,5 +8,7 @@ import java.util.List;
 public interface UserMapper {
 
     //     void insertFile(FileInfo fileInfo);
+    //查询用户信息by name
     List<UserInfo> queryUserInfoByName(String name);
+    Boolean tokenQuery(String token);
 }
