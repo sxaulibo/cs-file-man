@@ -25,4 +25,9 @@
              SELECT *
              FROM runoob_tbl WHERE file_name = #{name}
         </select>
+
+        <select id="tokenQuery" parameterType="String" >
+             SELECT *
+             FROM runoob_tbl WHERE file_token = #{token}
+        </select>
 </mapper>
