@@ -6,22 +6,24 @@ public interface UserInfoService {
 
     /**
      * 查询用户登录信息 by name
+     *
      * @param name 用户name
-     * @return     对象userInfo
+     * @return 对象userInfo
      */
     UserInfo queryUserInfoByName(String name);
 
     /**
      * token校验
+     *
      * @return
      */
     boolean tokenVerification(String token);
 
     /**
-     *  x
+     * 根据用户id获取根文件id
      *
      * @param userId
      * @return
      */
-    long getRootFileIdByUserId(String userId);
+    long getRootFileIdByUserId(long userId);
 }
