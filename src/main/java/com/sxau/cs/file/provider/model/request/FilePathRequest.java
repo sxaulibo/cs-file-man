@@ -10,4 +10,12 @@ public class FilePathRequest extends BaseUserRequest {
      * 文件(夹)全路径
      */
     private String path;
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
 }

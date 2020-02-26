@@ -17,6 +17,7 @@ public interface UserInfoService {
      *
      * @return
      */
+    @Deprecated
     boolean tokenVerification(String token);
 
     /**
@@ -25,5 +26,13 @@ public interface UserInfoService {
      * @param userId
      * @return
      */
-    long getRootFileIdByUserId(long userId);
+    long queryRootFileIdByUserId(long userId);
+
+    /**
+     * 若为无效token，则返回null
+     *
+     * @param token 密令
+     * @return 用户id
+     */
+    Long queryUserIdByToken(String token);
 }

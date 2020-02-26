@@ -60,7 +60,7 @@ public class RestController1 {
 //            writer.close();
 //            return "";
 //        }
-        return "" ;
+        return "";
     }
 
     @RequestMapping("/upload")

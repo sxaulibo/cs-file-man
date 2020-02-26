@@ -1,6 +1,6 @@
 package com.sxau.cs.file.service.bean;
 
-public class FileInfo {
+public class FileInfoBean {
     /**
      * 姓名
      */
