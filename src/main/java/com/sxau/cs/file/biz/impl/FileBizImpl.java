@@ -11,7 +11,7 @@ import com.sxau.cs.file.provider.model.response.FileInfo;
 import com.sxau.cs.file.provider.model.response.FileInfoResponse;
 import com.sxau.cs.file.provider.model.response.FileListResponse;
 import com.sxau.cs.file.service.FileService;
-import com.sxau.cs.file.service.UserInfoService;
+import com.sxau.cs.file.service.UserService;
 import com.sxau.cs.file.service.bean.FileIdQueryCondition;
 import com.sxau.cs.file.service.bean.FileInfoBean;
 import org.apache.commons.lang3.StringUtils;
@@ -31,14 +31,14 @@ public class FileBizImpl implements FileBiz {
     private FileService fileService;
 
     @Resource
-    private UserInfoService userInfoService;
+    private UserService userService;
 
     public FileInfoResponse infoByPath(FilePathRequest filePathRequest) {
         String token = filePathRequest.getToken();
-        Long userId = userInfoService.queryUserIdByToken(token);
+        Long userId = userService.queryUserIdByToken(token);
         Assert.notNull(userId, "token非法");
         FileIdQueryCondition fileIdQueryCondition = new FileIdQueryCondition();
-        long parentFileId = userInfoService.queryRootFileIdByUserId(userId);
+        long parentFileId = userService.queryRootFileIdByUserId(userId);
         List<String> fileNameList = parseFilePath(filePathRequest.getPath());
         for (String fileName : fileNameList) {
             fileIdQueryCondition.setParentId(parentFileId);
@@ -56,7 +56,7 @@ public class FileBizImpl implements FileBiz {
 
     public FileListResponse list(@RequestBody FileListRequest fileListRequest) {
         String token = fileListRequest.getToken();
-        Long userId = userInfoService.queryUserIdByToken(token);
+        Long userId = userService.queryUserIdByToken(token);
         Assert.notNull(userId, "token非法");
 
         Long parentFileId = fileListRequest.getFid();
@@ -71,7 +71,7 @@ public class FileBizImpl implements FileBiz {
 
     public FileInfoResponse createDir(FileCreateRequest fileCreateRequest) {
         String token = fileCreateRequest.getToken();
-        Long userId = userInfoService.queryUserIdByToken(token);
+        Long userId = userService.queryUserIdByToken(token);
         Assert.notNull(userId, "token非法");
 
         String fileName = fileCreateRequest.getName();
