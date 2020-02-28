@@ -1,4 +1,4 @@
-package com.sxau.cs.file.provider;
+package com.sxau.cs.file.man.provider;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

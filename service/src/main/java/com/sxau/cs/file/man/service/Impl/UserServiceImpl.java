@@ -1,9 +1,9 @@
-package com.sxau.cs.file.service.Impl;
+package com.sxau.cs.file.man.service.Impl;
 
-import com.sxau.cs.file.service.utils.UtilSqlSession;
-import com.sxau.cs.file.service.UserService;
-import com.sxau.cs.file.service.bean.UserInfo;
-import com.sxau.cs.file.service.mapper.UserMapper;
+import com.sxau.cs.file.man.service.UserService;
+import com.sxau.cs.file.man.service.mapper.UserMapper;
+import com.sxau.cs.file.man.service.utils.UtilSqlSession;
+import com.sxau.cs.file.man.service.bean.UserInfo;
 
 import java.util.List;
 

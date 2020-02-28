@@ -1,4 +1,4 @@
-package com.sxau.cs.file.biz;
+package com.sxau.cs.file.man.biz;
 
 import com.sxau.cs.file.man.common.model.request.FileCreateRequest;
 import com.sxau.cs.file.man.common.model.request.FileListRequest;

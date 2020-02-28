@@ -1,4 +1,4 @@
-package com.sxau.cs.file.service.bean;
+package com.sxau.cs.file.man.service.bean;
 
 public class FileIdQueryCondition {
 

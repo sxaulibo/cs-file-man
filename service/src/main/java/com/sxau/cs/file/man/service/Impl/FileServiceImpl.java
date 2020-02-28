@@ -1,12 +1,12 @@
-package com.sxau.cs.file.service.Impl;
+package com.sxau.cs.file.man.service.Impl;
 
 import com.google.common.collect.Lists;
 import com.sxau.cs.file.man.common.model.response.FileInfo;
-import com.sxau.cs.file.service.FileService;
-import com.sxau.cs.file.service.bean.FileIdQueryCondition;
-import com.sxau.cs.file.service.bean.FileInfoBean;
-import com.sxau.cs.file.service.mapper.FileInfoMapper;
-import com.sxau.cs.file.service.mapper.FileRelationMapper;
+import com.sxau.cs.file.man.service.FileService;
+import com.sxau.cs.file.man.service.bean.FileIdQueryCondition;
+import com.sxau.cs.file.man.service.mapper.FileInfoMapper;
+import com.sxau.cs.file.man.service.mapper.FileRelationMapper;
+import com.sxau.cs.file.man.service.bean.FileInfoBean;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

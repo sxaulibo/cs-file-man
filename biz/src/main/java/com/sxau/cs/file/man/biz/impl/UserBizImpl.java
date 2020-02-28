@@ -1,14 +1,14 @@
-package com.sxau.cs.file.biz.impl;
+package com.sxau.cs.file.man.biz.impl;
 
-import com.sxau.cs.file.biz.UserBiz;
+import com.sxau.cs.file.man.biz.UserBiz;
 import com.sxau.cs.file.man.common.constant.Constant;
 import com.sxau.cs.file.man.common.model.request.UserLoginRequest;
 import com.sxau.cs.file.man.common.model.request.UserLogoutReq;
 import com.sxau.cs.file.man.common.model.response.UserLoginResponse;
 import com.sxau.cs.file.man.common.model.response.UserLogoutResp;
-import com.sxau.cs.file.service.Impl.UserServiceImpl;
-import com.sxau.cs.file.service.UserService;
-import com.sxau.cs.file.service.bean.UserInfo;
+import com.sxau.cs.file.man.service.Impl.UserServiceImpl;
+import com.sxau.cs.file.man.service.UserService;
+import com.sxau.cs.file.man.service.bean.UserInfo;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.util.Assert;
 

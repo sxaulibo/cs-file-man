@@ -1,6 +1,6 @@
-package com.sxau.cs.file.provider;
+package com.sxau.cs.file.man.provider;
 
-import com.sxau.cs.file.biz.FileBiz;
+import com.sxau.cs.file.man.biz.FileBiz;
 import com.sxau.cs.file.man.common.model.request.FileCreateRequest;
 import com.sxau.cs.file.man.common.model.request.FileListRequest;
 import com.sxau.cs.file.man.common.model.request.FilePathRequest;

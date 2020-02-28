@@ -1,6 +1,6 @@
-package com.sxau.cs.file.service.mapper;
+package com.sxau.cs.file.man.service.mapper;
 
-import com.sxau.cs.file.service.bean.UserInfo;
+import com.sxau.cs.file.man.service.bean.UserInfo;
 
 import java.util.List;
 

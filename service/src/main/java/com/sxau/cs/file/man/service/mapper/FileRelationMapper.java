@@ -1,6 +1,6 @@
-package com.sxau.cs.file.service.mapper;
+package com.sxau.cs.file.man.service.mapper;
 
-import com.sxau.cs.file.service.bean.FileIdQueryCondition;
+import com.sxau.cs.file.man.service.bean.FileIdQueryCondition;
 
 import java.util.List;
 

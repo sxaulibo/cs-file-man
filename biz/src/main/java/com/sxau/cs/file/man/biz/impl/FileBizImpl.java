@@ -1,8 +1,8 @@
-package com.sxau.cs.file.biz.impl;
+package com.sxau.cs.file.man.biz.impl;
 
 import com.google.common.collect.Lists;
-import com.sxau.cs.file.biz.FileBiz;
-import com.sxau.cs.file.biz.adaptor.FileInfoAdaptor;
+import com.sxau.cs.file.man.biz.FileBiz;
+import com.sxau.cs.file.man.biz.adaptor.FileInfoAdaptor;
 import com.sxau.cs.file.man.common.constant.Constant;
 import com.sxau.cs.file.man.common.model.request.FileCreateRequest;
 import com.sxau.cs.file.man.common.model.request.FileListRequest;
@@ -11,10 +11,10 @@ import com.sxau.cs.file.man.common.model.response.FileDownloadResponse;
 import com.sxau.cs.file.man.common.model.response.FileInfo;
 import com.sxau.cs.file.man.common.model.response.FileInfoResponse;
 import com.sxau.cs.file.man.common.model.response.FileListResponse;
-import com.sxau.cs.file.service.FileService;
-import com.sxau.cs.file.service.UserService;
-import com.sxau.cs.file.service.bean.FileIdQueryCondition;
-import com.sxau.cs.file.service.bean.FileInfoBean;
+import com.sxau.cs.file.man.service.FileService;
+import com.sxau.cs.file.man.service.UserService;
+import com.sxau.cs.file.man.service.bean.FileIdQueryCondition;
+import com.sxau.cs.file.man.service.bean.FileInfoBean;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;

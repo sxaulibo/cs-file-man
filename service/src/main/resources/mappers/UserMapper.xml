@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sxau.cs.file.service.mapper.UserMapper">
+<mapper namespace="com.sxau.cs.file.man.service.mapper.UserMapper">
 
-    <resultMap id="libo" type="com.sxau.cs.file.service.bean.UserInfo">
+    <resultMap id="libo" type="com.sxau.cs.file.man.service.bean.UserInfo">
         <result property="name" column="file_name"/>
         <result property="password" column="file_password"/>
         <result property="rootFid" column="file_rootfid"/>

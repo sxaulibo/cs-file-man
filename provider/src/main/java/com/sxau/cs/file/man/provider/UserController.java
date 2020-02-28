@@ -1,6 +1,6 @@
-package com.sxau.cs.file.provider;
+package com.sxau.cs.file.man.provider;
 
-import com.sxau.cs.file.biz.UserBiz;
+import com.sxau.cs.file.man.biz.UserBiz;
 import com.sxau.cs.file.man.common.model.request.UserLoginRequest;
 import com.sxau.cs.file.man.common.model.request.UserLogoutReq;
 import com.sxau.cs.file.man.common.model.response.UserLoginResponse;

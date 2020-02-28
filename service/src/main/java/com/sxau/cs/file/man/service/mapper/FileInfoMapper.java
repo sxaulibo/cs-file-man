@@ -1,7 +1,7 @@
-package com.sxau.cs.file.service.mapper;
+package com.sxau.cs.file.man.service.mapper;
 
 import com.sxau.cs.file.man.common.model.response.FileInfo ;
-import com.sxau.cs.file.service.bean.FileInfoBean;
+import com.sxau.cs.file.man.service.bean.FileInfoBean;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

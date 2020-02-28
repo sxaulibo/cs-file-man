@@ -1,8 +1,8 @@
-package com.sxau.cs.file.service;
+package com.sxau.cs.file.man.service;
 
 import com.sxau.cs.file.man.common.model.response.FileInfo;
-import com.sxau.cs.file.service.bean.FileIdQueryCondition;
-import com.sxau.cs.file.service.bean.FileInfoBean;
+import com.sxau.cs.file.man.service.bean.FileIdQueryCondition;
+import com.sxau.cs.file.man.service.bean.FileInfoBean;
 
 import java.util.List;
 

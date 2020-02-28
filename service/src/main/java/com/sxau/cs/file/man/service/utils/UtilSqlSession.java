@@ -1,4 +1,4 @@
-package com.sxau.cs.file.service.utils;
+package com.sxau.cs.file.man.service.utils;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
