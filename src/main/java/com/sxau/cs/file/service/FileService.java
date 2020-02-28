@@ -50,4 +50,6 @@ public interface FileService {
      * @return 子文件id列表
      */
     List<Long> queryFileIdsByParentId(long parentId);
+
+    File fileDownload(String fid);
 }

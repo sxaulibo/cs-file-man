@@ -14,7 +14,7 @@ public class FileInfo implements Serializable {
     /**
      * 父文件夹id
      */
-    private long parent;
+    private Long parent;
 
     /**
      * 文件(夹)名称
@@ -64,7 +64,7 @@ public class FileInfo implements Serializable {
         this.fid = fid;
     }
 
-    public long getParent() {
+    public Long getParent() {
         return parent;
     }
 

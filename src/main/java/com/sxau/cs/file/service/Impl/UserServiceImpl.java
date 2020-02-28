@@ -49,6 +49,7 @@ public class UserServiceImpl implements UserService {
         return UtilSqlSession.getInstance().getMapper(UserMapper.class).tokenVerification(token);
     }
 
+
 //    private SqlSession getSqlSession() throws IOException {
 //        //指定mybatis全局配置文件
 //        String resource = "mybatis-config.xml";

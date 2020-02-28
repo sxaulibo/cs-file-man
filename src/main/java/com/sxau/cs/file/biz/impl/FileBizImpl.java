@@ -7,6 +7,7 @@ import com.sxau.cs.file.provider.common.constants.Constant;
 import com.sxau.cs.file.provider.model.request.FileCreateRequest;
 import com.sxau.cs.file.provider.model.request.FileListRequest;
 import com.sxau.cs.file.provider.model.request.FilePathRequest;
+import com.sxau.cs.file.provider.model.response.FileDownloadResp;
 import com.sxau.cs.file.provider.model.response.FileInfo;
 import com.sxau.cs.file.provider.model.response.FileInfoResponse;
 import com.sxau.cs.file.provider.model.response.FileListResponse;
@@ -29,6 +30,7 @@ public class FileBizImpl implements FileBiz {
 
     @Resource
     private FileService fileService;
+    private UserService userService;
 
     @Resource
     private UserService userService;
@@ -94,6 +96,32 @@ public class FileBizImpl implements FileBiz {
         return fileInfoResponse;
     }
 
+    @Override
+    public FileDownloadResp download(String fid, String token) {
+        if (!userService.tokenVerification(token)) {
+            System.out.println("token失效");
+            return null;
+        } else if (fileService.queryInfoByFileId(Long.valueOf(fid)) == null) {
+            System.out.println("文件ID fid 不存在");
+        }
+        int userId1 = userService.queryUserIdByToken(token);
+        long fileId2 = userService.queryFileIdByUserId(String.valueOf(userId1));
+        FileInfo fileInfo = fileService.queryInfoByFileId(Long.valueOf(fid);
+        FileInfo fileInfo1;
+        Long fidNow = Long.valueOf(fid);
+        do {
+            fileInfo1 = fileService.queryInfoByFileId(Long.valueOf(fidNow));
+        } while (fileInfo1.getParent() != null);
+        if (fileInfo1.getFid() != fileId2) {
+            System.out.println("");
+            return null;
+        }
+        //todo 下载文件
+        downloadFile(fileId);
+        return null;
+    }
+
+
     /**
      * @param filePath 文件路径 /dev/code/
      * @return list of file names
@@ -106,5 +134,9 @@ public class FileBizImpl implements FileBiz {
         String[] names = path.split("/");
         //todo asList
         return Arrays.asList(names);
+    }
+
+    public File downloadFile(long fileId) {
+        return null;
     }
 }

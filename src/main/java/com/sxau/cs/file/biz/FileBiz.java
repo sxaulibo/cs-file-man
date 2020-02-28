@@ -3,6 +3,7 @@ package com.sxau.cs.file.biz;
 import com.sxau.cs.file.provider.model.request.FileCreateRequest;
 import com.sxau.cs.file.provider.model.request.FileListRequest;
 import com.sxau.cs.file.provider.model.request.FilePathRequest;
+import com.sxau.cs.file.provider.model.response.FileDownloadResp;
 import com.sxau.cs.file.provider.model.response.FileInfoResponse;
 import com.sxau.cs.file.provider.model.response.FileListResponse;
 
@@ -34,4 +35,6 @@ public interface FileBiz {
      * @return 文件(夹)信息
      */
     FileInfoResponse createDir(FileCreateRequest fileCreateRequest);
+
+    FileDownloadResp download(String fid, String token);
 }
