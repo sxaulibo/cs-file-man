@@ -1,11 +1,12 @@
 package com.sxau.cs.file.provider;
 
 import com.sxau.cs.file.biz.FileBiz;
-import com.sxau.cs.file.provider.model.request.FileCreateRequest;
-import com.sxau.cs.file.provider.model.request.FileListRequest;
-import com.sxau.cs.file.provider.model.request.FilePathRequest;
-import com.sxau.cs.file.provider.model.response.FileInfoResponse;
-import com.sxau.cs.file.provider.model.response.FileListResponse;
+import com.sxau.cs.file.man.common.model.request.FileCreateRequest;
+import com.sxau.cs.file.man.common.model.request.FileListRequest;
+import com.sxau.cs.file.man.common.model.request.FilePathRequest;
+import com.sxau.cs.file.man.common.model.response.FileDownloadResponse;
+import com.sxau.cs.file.man.common.model.response.FileInfoResponse;
+import com.sxau.cs.file.man.common.model.response.FileListResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,7 +35,7 @@ public class FileController {
     }
 
     @ResponseBody
-    public File download(@RequestParam String fid, String token) {
+    public FileDownloadResponse download(@RequestParam String fid, String token) {
         return fileBiz.download(fid, token);
     }
 }

@@ -9,7 +9,7 @@
         <result property="rootFid" column="file_rootfid"/>
         <result property="token" column="file_token"/>
     </resultMap>
-    <insert id="insertFile" parameterType="com.sxau.cs.file.provider.model.response.FileInfo">
+    <insert id="insertFile" parameterType="com.sxau.cs.file.man.common.model.response.FileInfo">
             INSERT INTO fileInfo_tbl (fileInfo_fileCode,fileInfo_fileName,fileInfo_path)
             VALUES (#{fileCode},#{fileName},#{path})
         </insert>

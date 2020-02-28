@@ -1,11 +1,11 @@
 package com.sxau.cs.file.biz;
 
-import com.sxau.cs.file.provider.model.request.FileCreateRequest;
-import com.sxau.cs.file.provider.model.request.FileListRequest;
-import com.sxau.cs.file.provider.model.request.FilePathRequest;
-import com.sxau.cs.file.provider.model.response.FileDownloadResp;
-import com.sxau.cs.file.provider.model.response.FileInfoResponse;
-import com.sxau.cs.file.provider.model.response.FileListResponse;
+import com.sxau.cs.file.man.common.model.request.FileCreateRequest;
+import com.sxau.cs.file.man.common.model.request.FileListRequest;
+import com.sxau.cs.file.man.common.model.request.FilePathRequest;
+import com.sxau.cs.file.man.common.model.response.FileDownloadResponse;
+import com.sxau.cs.file.man.common.model.response.FileInfoResponse;
+import com.sxau.cs.file.man.common.model.response.FileListResponse;
 
 /**
  * 文件业务类
@@ -36,5 +36,5 @@ public interface FileBiz {
      */
     FileInfoResponse createDir(FileCreateRequest fileCreateRequest);
 
-    FileDownloadResp download(String fid, String token);
+    FileDownloadResponse download(String fid, String token);
 }

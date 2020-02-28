@@ -1,9 +1,9 @@
 package com.sxau.cs.file.biz;
 
-import com.sxau.cs.file.provider.model.request.UserLoginRequest;
-import com.sxau.cs.file.provider.model.request.UserLogoutReq;
-import com.sxau.cs.file.provider.model.response.UserLoginResponse;
-import com.sxau.cs.file.provider.model.response.UserLogoutResp;
+import com.sxau.cs.file.man.common.model.request.UserLoginRequest;
+import com.sxau.cs.file.man.common.model.request.UserLogoutReq;
+import com.sxau.cs.file.man.common.model.response.UserLoginResponse;
+import com.sxau.cs.file.man.common.model.response.UserLogoutResp;
 
 /**
  * 用户业务
@@ -19,6 +19,7 @@ public interface UserBiz {
 
     /**
      * 用户登出
+     *
      * @param userLogoutReq 用户登出请求
      * @return 用户登出响应
      */

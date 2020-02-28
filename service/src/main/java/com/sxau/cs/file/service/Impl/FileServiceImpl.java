@@ -1,7 +1,7 @@
 package com.sxau.cs.file.service.Impl;
 
 import com.google.common.collect.Lists;
-import com.sxau.cs.file.provider.model.response.FileInfo;
+import com.sxau.cs.file.man.common.model.response.FileInfo;
 import com.sxau.cs.file.service.FileService;
 import com.sxau.cs.file.service.bean.FileIdQueryCondition;
 import com.sxau.cs.file.service.bean.FileInfoBean;
@@ -28,7 +28,7 @@ public class FileServiceImpl implements FileService {
         return fileInfoMapper.queryFileInfoListByFileIds(fileId);
     }
 
-    public long insertFileInfo(FileInfoBean fileInfoBean){
+    public long insertFileInfo(FileInfoBean fileInfoBean) {
         return fileInfoMapper.insertFileInfo(fileInfoBean);
     }
 
@@ -39,4 +39,9 @@ public class FileServiceImpl implements FileService {
     public List<Long> queryFileIdsByParentId(long parentId) {
         return fileRelationMapper.queryFileIdListByParentId(parentId);
     }
+
+    public FileInfo fileDownload(String fid) {
+        return null;
+    }
+
 }

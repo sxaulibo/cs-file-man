@@ -1,4 +1,4 @@
-package com.sxau.cs.file.provider.constants;
+package com.sxau.cs.file.man.common.constant;
 
 public interface Constant {
 

@@ -1,4 +1,4 @@
-package com.sxau.cs.file.provider.model.request;
+package com.sxau.cs.file.man.common.model.request;
 
 /**
  * 文件(夹)全路径

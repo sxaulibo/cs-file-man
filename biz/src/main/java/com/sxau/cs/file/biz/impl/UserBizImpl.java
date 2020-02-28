@@ -1,11 +1,11 @@
 package com.sxau.cs.file.biz.impl;
 
 import com.sxau.cs.file.biz.UserBiz;
-import com.sxau.cs.file.provider.constants.Constant;
-import com.sxau.cs.file.provider.model.request.UserLoginRequest;
-import com.sxau.cs.file.provider.model.request.UserLogoutReq;
-import com.sxau.cs.file.provider.model.response.UserLoginResponse;
-import com.sxau.cs.file.provider.model.response.UserLogoutResp;
+import com.sxau.cs.file.man.common.constant.Constant;
+import com.sxau.cs.file.man.common.model.request.UserLoginRequest;
+import com.sxau.cs.file.man.common.model.request.UserLogoutReq;
+import com.sxau.cs.file.man.common.model.response.UserLoginResponse;
+import com.sxau.cs.file.man.common.model.response.UserLogoutResp;
 import com.sxau.cs.file.service.Impl.UserServiceImpl;
 import com.sxau.cs.file.service.UserService;
 import com.sxau.cs.file.service.bean.UserInfo;
@@ -64,6 +64,4 @@ public class UserBizImpl implements UserBiz {
         userLogoutResp.setStat(Constant.Stat.OK);
         return userLogoutResp;
     }
-
-
 }

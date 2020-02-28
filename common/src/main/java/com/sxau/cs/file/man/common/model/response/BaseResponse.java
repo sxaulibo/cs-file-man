@@ -1,4 +1,4 @@
-package com.sxau.cs.file.provider.model.response;
+package com.sxau.cs.file.man.common.model.response;
 
 import java.io.Serializable;
 
