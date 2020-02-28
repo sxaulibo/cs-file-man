@@ -31,7 +31,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserInfo> queryUserInfoByUserId(Integer UserId) {
-        return UtilSqlSession.getInstance().getMapper(UserMapper.class).queryUserInfoByUserId(UserId);
+        List<UserInfo> userInfoList = UtilSqlSession.getInstance().getMapper(UserMapper.class).queryUserInfoByUserId(UserId);
+        if (userInfoList.size() > 1) {
+            throw new RuntimeException("queryUserInfoByUserId 查询结果数大于1");
+        }
+        return userInfoList;
     }
 
     @Override
@@ -51,7 +55,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean insertToken(Integer userId, String token) {
-        return UtilSqlSession.getInstance().getMapper(UserMapper.class).insertToken(userId,token);
+        return UtilSqlSession.getInstance().getMapper(UserMapper.class).insertToken(userId, token);
     }
 
     @Override
