@@ -24,6 +24,7 @@ file_tb2 (文件表)
 file_id
 file_name
 file_size
+file_path
 creator
 editor
 c_ctime
