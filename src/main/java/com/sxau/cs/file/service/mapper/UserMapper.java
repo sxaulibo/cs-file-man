@@ -6,15 +6,19 @@ import java.util.List;
 
 public interface UserMapper {
 
-//    //     void insertFile(FileInfo fileInfo);
-//    //查询用户信息by name
-//    List<UserInfo> queryUserInfoByName(String name);
-//    Boolean tokenQuery(String token);
+    Integer queryUserIdByName(String name);
 
-    int queryUserIdByName(String name);
-    int queryUserIdByToken(String token);
-    UserInfo queryUserInfoByUserId(String UserId);
-    int queryFileIdByUserId(String userId);
-    List<String> queryTokenByUserId(String UserId);
+    Integer queryUserIdByToken(String token);
+
+    List<UserInfo> queryUserInfoByUserId(int UserId);
+
+    Long queryFileIdByUserId(Integer userId);//todo 注意入参要判断 userId是否为null,插入name时要判断是否重名
+
+    List<String> queryTokenByUserId(Integer UserId);//todo 注意入参要判断 userId是否为null
+
     boolean tokenVerification(String token);
+
+    boolean insertToken(Integer userId, String token);
+
+    boolean deleteToken(String token);
 }

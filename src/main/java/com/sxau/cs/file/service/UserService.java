@@ -12,8 +12,7 @@ public interface UserService {
      * @param token
      * @return
      */
-    int queryUserIdByToken(String token);
-
+    Integer queryUserIdByToken(String token);
 
     /**
      * 查询用户id by name
@@ -21,8 +20,7 @@ public interface UserService {
      * @param name 用户名
      * @return
      */
-    int queryUserIdByName(String name);
-
+    Integer queryUserIdByName(String name);
 
     /**
      * 查询UserInfo by 用户Id
@@ -30,7 +28,7 @@ public interface UserService {
      * @param UserId 用户UserId
      * @return 用户信息
      */
-    UserInfo queryUserInfoByUserId(String UserId);
+    List<UserInfo> queryUserInfoByUserId(Integer UserId);
 
     /**
      * 查询fileId by 用户Id
@@ -38,7 +36,7 @@ public interface UserService {
      * @param userId 用户Id
      * @return fileId
      */
-    int queryFileIdByUserId(String userId);
+    Long queryFileIdByUserId(Integer userId);
 
     /**
      * 查询Token by 用户Id
@@ -46,7 +44,7 @@ public interface UserService {
      * @param UserId 用户UserId
      * @return token List
      */
-    List<String> queryTokenByUserId(String UserId);
+    List<String> queryTokenByUserId(Integer UserId);
 
     /**
      * token校验
@@ -55,8 +53,21 @@ public interface UserService {
      */
     boolean tokenVerification(String token);
 
-    boolean insertToken(String userId, String token);
+    /**
+     * 插入token
+     *
+     * @param userId 用户id
+     * @param token  token
+     * @return boolean
+     */
+    boolean insertToken(Integer userId, String token);
 
+    /**
+     * 删除token
+     *
+     * @param token token
+     * @return boolean
+     */
     boolean deleteToken(String token);
 
 }
