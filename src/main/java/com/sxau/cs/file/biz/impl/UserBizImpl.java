@@ -6,6 +6,7 @@ import com.sxau.cs.file.provider.model.request.UserLoginRequest;
 import com.sxau.cs.file.provider.model.request.UserLogoutReq;
 import com.sxau.cs.file.provider.model.response.UserLoginResponse;
 import com.sxau.cs.file.provider.model.response.UserLogoutResp;
+import com.sxau.cs.file.service.Impl.UserServiceImpl;
 import com.sxau.cs.file.service.UserService;
 import com.sxau.cs.file.service.bean.UserInfo;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -13,7 +14,7 @@ import org.springframework.util.Assert;
 
 public class UserBizImpl implements UserBiz {
 
-    private static UserService userService=;
+    private static UserService userService=new UserServiceImpl();
 
     @Override
     public UserLoginResponse nameLogin(UserLoginRequest userLoginRequest) {

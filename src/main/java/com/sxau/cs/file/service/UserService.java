@@ -14,6 +14,7 @@ public interface UserService {
      */
     int queryUserIdByToken(String token);
 
+
     /**
      * 查询用户id by name
      *
@@ -22,13 +23,6 @@ public interface UserService {
      */
     int queryUserIdByName(String name);
 
-    /**
-     * 查询用户id by token
-     *
-     * @param token 11位token字符串
-     * @return
-     */
-    int queryUserIdByToken(String token);
 
     /**
      * 查询UserInfo by 用户Id
