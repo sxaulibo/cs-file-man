@@ -12,29 +12,46 @@ import com.sxau.cs.file.service.bean.UserInfo;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.util.Assert;
 
+import java.util.List;
+
 public class UserBizImpl implements UserBiz {
 
-    private static UserService userService=new UserServiceImpl();
+    private static UserService userService = new UserServiceImpl();
 
     @Override
     public UserLoginResponse nameLogin(UserLoginRequest userLoginRequest) {
+        //前置校验
         Assert.hasLength(userLoginRequest.getName(), "用户名不能为空");
         Assert.hasLength(userLoginRequest.getPassword(), "用户密码不能为空");
-        int userId = userService.queryUserIdByName(userLoginRequest.getName());
-        UserInfo userInfo = userService.queryUserInfoByUserId(String.valueOf(userId));
-        if (userLoginRequest.getPassword() != userInfo.getPassword()) {
-            return null;
-        }
+
         UserLoginResponse userLoginResponse = new UserLoginResponse();
 
-        //生成token
-        String token = RandomStringUtils.randomAlphabetic(11);
-        if (!userService.insertToken(String.valueOf(userId), token)) {
-            System.out.println("插入token失败");
-            return null;
+        //校验是否查到用户ID
+        Integer userId = userService.queryUserIdByName(userLoginRequest.getName());
+        List<UserInfo> userInfoList = userService.queryUserInfoByUserId(userId);
+        if (userId == null || userInfoList.size() == 0 || userInfoList.get(0).getPassword() != userLoginRequest.getPassword()) {
+            System.out.println("用户不存在/登陆密码错误");
+            userLoginResponse.setStat(Constant.Stat.ERROR);
+            return userLoginResponse;
         }
+
+        String token = tokenProduce();
+        if (!userService.insertToken(userId, token)) {
+            System.out.println("token插入失败");
+        }
+        userLoginResponse.setStat(Constant.Stat.OK);
         userLoginResponse.setToken(token);
         return userLoginResponse;
+    }
+
+    /**
+     * 生成token
+     *
+     * @return token
+     */
+    private String tokenProduce() {
+        String token = RandomStringUtils.randomAlphabetic(11);
+        return token;
     }
 
     @Override
@@ -47,4 +64,6 @@ public class UserBizImpl implements UserBiz {
         userLogoutResp.setStat(Constant.Stat.OK);
         return userLogoutResp;
     }
+
+
 }
