@@ -21,15 +21,18 @@ user_name     VARCHAR
 user_pwd      VARCHAR
 
 file_tb2 (文件表)
+
 file_id       BIGINT
 file_name     VARCHAR
 file_size      BIGINT
+file_path
 creator       VARCHAR
 editor        VARCHAR
 c_ctime       DATETIME
 c_ctime_millisecond MEDIUMINT   精确到毫秒
 c_mtime       DATETIME
 c_mtime_millisecond MEDIUMINT   精确到毫秒
+
 file_tb1 (文件&文件 关联表)
 file_id       BIGINT
 file_parentid BIGINT
