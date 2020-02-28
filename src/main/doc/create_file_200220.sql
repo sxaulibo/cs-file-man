@@ -20,10 +20,18 @@ user_id
 user_name
 user_pwd
 
-file_tb1 (文件表)
+file_tb2 (文件表)
+file_id
+file_name
+file_size
+creator
+editor
+c_ctime
+c_mtime
+
+file_tb1 (文件&文件 关联表)
 file_id
 file_parentid
-...
 
 userid_fileid (用户&文件 关联表)    业务上用户id和根文件ID
 user_id
