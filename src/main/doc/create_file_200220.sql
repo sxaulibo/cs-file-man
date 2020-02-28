@@ -16,7 +16,7 @@ select * from  runoob_tb1;
 ----------------------------------------------------------------------
 数据表模型         数据库名 csfile
 user_tb1 (用户表)
-user_id       INT
+user_id       INT                   user_id为唯一键 不能为null
 user_name     VARCHAR
 user_pwd      VARCHAR
 

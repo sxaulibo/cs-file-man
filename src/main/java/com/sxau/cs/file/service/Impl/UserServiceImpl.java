@@ -10,43 +10,53 @@ import java.util.List;
 
 public class UserServiceImpl implements UserService {
 
-    /**
-     * token 生成11位
-     *
-     * @return
-     */
-    private String tokenGenerate1() {
-        return RandomStringUtils.randomAlphabetic(11);
-    }
+//    /**
+//     * token 生成11位
+//     *
+//     * @return
+//     */
+//    private String tokenGenerate1() {
+//        return RandomStringUtils.randomAlphabetic(11);
+//    }
 
     @Override
-    public int queryUserIdByName(String name) {
+    public Integer queryUserIdByName(String name) {
         return UtilSqlSession.getInstance().getMapper(UserMapper.class).queryUserIdByName(name);
     }
 
     @Override
-    public int queryUserIdByToken(String token) {
+    public Integer queryUserIdByToken(String token) {
         return UtilSqlSession.getInstance().getMapper(UserMapper.class).queryUserIdByToken(token);
     }
 
     @Override
-    public UserInfo queryUserInfoByUserId(String UserId) {
+    public List<UserInfo> queryUserInfoByUserId(Integer UserId) {
         return UtilSqlSession.getInstance().getMapper(UserMapper.class).queryUserInfoByUserId(UserId);
     }
 
     @Override
-    public int queryFileIdByUserId(String userId) {
+    public Long queryFileIdByUserId(Integer userId) {
         return UtilSqlSession.getInstance().getMapper(UserMapper.class).queryFileIdByUserId(userId);
     }
 
     @Override
-    public List<String> queryTokenByUserId(String UserId) {
+    public List<String> queryTokenByUserId(Integer UserId) {
         return UtilSqlSession.getInstance().getMapper(UserMapper.class).queryTokenByUserId(UserId);
     }
 
     @Override
     public boolean tokenVerification(String token) {
         return UtilSqlSession.getInstance().getMapper(UserMapper.class).tokenVerification(token);
+    }
+
+    @Override
+    public boolean insertToken(Integer userId, String token) {
+        return UtilSqlSession.getInstance().getMapper(UserMapper.class).insertToken(userId,token);
+    }
+
+    @Override
+    public boolean deleteToken(String token) {
+        return UtilSqlSession.getInstance().getMapper(UserMapper.class).deleteToken(token);
     }
 
 
