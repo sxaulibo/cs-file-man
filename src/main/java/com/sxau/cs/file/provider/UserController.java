@@ -1,36 +1,27 @@
 package com.sxau.cs.file.provider;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.sxau.cs.file.service.FileService;
-import com.sxau.cs.file.service.Impl.FileServiceImpl;
+import com.sxau.cs.file.biz.UserBiz;
+import com.sxau.cs.file.provider.model.request.UserLoginRequest;
+import com.sxau.cs.file.provider.model.request.UserLogoutReq;
+import com.sxau.cs.file.provider.model.response.UserLoginResponse;
+import com.sxau.cs.file.provider.model.response.UserLogoutResp;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpServletResponse;
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.io.IOException;
 
-public class RestController1 {
+public class UserController {
 
-
+    private static UserBiz userBiz;
     @RequestMapping("/nameLogin")
-    public String nameLogin(String json) {
-        //从字符串解析JSON对象  eg"{\"runoob\":\"菜鸟教程\"}"  实际  {"name": "test", "password":"123456"}
-        JSONObject obj = JSON.parseObject(json);
-//        obj.getString(name);
-
-        return "ok";
+    public UserLoginResponse nameLogin(@RequestBody UserLoginRequest userLoginRequest) {
+        return userBiz.nameLogin(userLoginRequest);
     }
 
     @RequestMapping("/logout")
-    public String logout(String json) {
-        return "";
+    public UserLogoutResp logout(UserLogoutReq userLogoutReq) {
+        return userBiz.logout(userLogoutReq);
     }
 
     @RequestMapping("/download")
@@ -60,7 +51,7 @@ public class RestController1 {
 //            writer.close();
 //            return "";
 //        }
-        return "" ;
+        return "";
     }
 
     @RequestMapping("/upload")

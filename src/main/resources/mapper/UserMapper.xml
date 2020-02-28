@@ -30,4 +30,30 @@
              SELECT *
              FROM runoob_tbl WHERE file_token = #{token}
         </select>
+
+    <select id="queryUserIdByName" parameterType="String" >
+             SELECT USER_ID
+             FROM USER_TB1 WHERE USER_NAME = #{NAME}
+        </select>
+    <select id="queryUserIdByToken" parameterType="String" >
+             SELECT USER_ID
+             FROM TOKEN_TB1 WHERE USER_NAME = #{TOKEN}
+        </select>
+    <select id="queryUserInfoByUserId" parameterType="String" >
+             SELECT USER_ID
+             FROM TOKEN_TB1 WHERE USER_NAME = #{TOKEN}
+        </select>
+    <select id="queryFileIdByUserId" parameterType="String" >
+             SELECT USER_ID
+             FROM TOKEN_TB1 WHERE USER_NAME = #{TOKEN}
+        </select>
+    <select id="queryTokenByUserId" parameterType="String" >
+             SELECT USER_ID
+             FROM TOKEN_TB1 WHERE USER_NAME = #{TOKEN}
+        </select>
+    <select id="tokenVerification" parameterType="String" >
+             SELECT USER_ID
+             FROM TOKEN_TB1 WHERE USER_NAME = #{TOKEN}
+        </select>
+
 </mapper>

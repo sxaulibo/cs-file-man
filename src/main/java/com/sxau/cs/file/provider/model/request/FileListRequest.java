@@ -1,5 +1,8 @@
 package com.sxau.cs.file.provider.model.request;
 
+/**
+ * 文件列表请求
+ */
 public class FileListRequest extends BaseUserRequest{
 
     private static final long serialVersionUID = 8378117663166128501L;
@@ -7,13 +10,13 @@ public class FileListRequest extends BaseUserRequest{
     /**
      * 文件id
      */
-    private long fid;
+    private Long fid;
 
-    public long getFid() {
+    public Long getFid() {
         return fid;
     }
 
-    public void setFid(long fid) {
+    public void setFid(Long fid) {
         this.fid = fid;
     }
 }
