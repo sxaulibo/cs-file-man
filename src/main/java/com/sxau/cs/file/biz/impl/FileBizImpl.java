@@ -30,17 +30,16 @@ public class FileBizImpl implements FileBiz {
 
     @Resource
     private FileService fileService;
-    private UserService userService;
 
     @Resource
     private UserService userService;
 
     public FileInfoResponse infoByPath(FilePathRequest filePathRequest) {
         String token = filePathRequest.getToken();
-        Long userId = userService.queryUserIdByToken(token);
+        int userId = userService.queryUserIdByToken(token);
         Assert.notNull(userId, "token非法");
         FileIdQueryCondition fileIdQueryCondition = new FileIdQueryCondition();
-        long parentFileId = userService.queryRootFileIdByUserId(userId);
+        long parentFileId = userService.queryFileIdByUserId(String.valueOf(userId));
         List<String> fileNameList = parseFilePath(filePathRequest.getPath());
         for (String fileName : fileNameList) {
             fileIdQueryCondition.setParentId(parentFileId);
@@ -58,7 +57,7 @@ public class FileBizImpl implements FileBiz {
 
     public FileListResponse list(@RequestBody FileListRequest fileListRequest) {
         String token = fileListRequest.getToken();
-        Long userId = userService.queryUserIdByToken(token);
+        Integer userId = userService.queryUserIdByToken(token);
         Assert.notNull(userId, "token非法");
 
         Long parentFileId = fileListRequest.getFid();
@@ -73,7 +72,7 @@ public class FileBizImpl implements FileBiz {
 
     public FileInfoResponse createDir(FileCreateRequest fileCreateRequest) {
         String token = fileCreateRequest.getToken();
-        Long userId = userService.queryUserIdByToken(token);
+        Integer userId = userService.queryUserIdByToken(token);
         Assert.notNull(userId, "token非法");
 
         String fileName = fileCreateRequest.getName();
@@ -106,7 +105,7 @@ public class FileBizImpl implements FileBiz {
         }
         int userId1 = userService.queryUserIdByToken(token);
         long fileId2 = userService.queryFileIdByUserId(String.valueOf(userId1));
-        FileInfo fileInfo = fileService.queryInfoByFileId(Long.valueOf(fid);
+        FileInfo fileInfo = fileService.queryInfoByFileId(Long.valueOf(fid));
         FileInfo fileInfo1;
         Long fidNow = Long.valueOf(fid);
         do {
@@ -117,7 +116,7 @@ public class FileBizImpl implements FileBiz {
             return null;
         }
         //todo 下载文件
-        downloadFile(fileId);
+        downloadFile(fid);
         return null;
     }
 
@@ -136,7 +135,7 @@ public class FileBizImpl implements FileBiz {
         return Arrays.asList(names);
     }
 
-    public File downloadFile(long fileId) {
+    public FileInfo downloadFile(String fileId) {
         return null;
     }
 }
