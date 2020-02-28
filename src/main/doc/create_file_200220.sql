@@ -25,7 +25,7 @@ file_tb2 (文件表)
 file_id       BIGINT
 file_name     VARCHAR
 file_size      BIGINT
-file_path
+file_path     VARCHAR
 creator       VARCHAR
 editor        VARCHAR
 c_ctime       DATETIME
