@@ -1,7 +1,7 @@
 package com.sxau.cs.file.man.service.Impl;
 
 import com.google.common.collect.Lists;
-import com.sxau.cs.file.common.model.response.FileInfo;
+import com.sxau.cs.file.man.common.model.response.FileInfo;
 import com.sxau.cs.file.man.service.mapper.FileInfoMapper;
 import com.sxau.cs.file.man.service.mapper.FileRelationMapper;
 import com.sxau.cs.file.man.service.FileService;

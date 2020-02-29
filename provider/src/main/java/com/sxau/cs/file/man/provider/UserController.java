@@ -1,10 +1,11 @@
 package com.sxau.cs.file.man.provider;
 
-import com.sxau.cs.file.biz.UserBiz;
-import com.sxau.cs.file.common.model.request.UserLoginRequest;
-import com.sxau.cs.file.common.model.request.UserLogoutReq;
-import com.sxau.cs.file.common.model.response.UserLoginResponse;
-import com.sxau.cs.file.common.model.response.UserLogoutResp;
+
+import com.sxau.cs.file.man.biz.UserBiz;
+import com.sxau.cs.file.man.common.model.request.UserLoginRequest;
+import com.sxau.cs.file.man.common.model.request.UserLogoutReq;
+import com.sxau.cs.file.man.common.model.response.UserLoginResponse;
+import com.sxau.cs.file.man.common.model.response.UserLogoutResp;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

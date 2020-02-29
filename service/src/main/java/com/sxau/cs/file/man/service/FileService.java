@@ -1,6 +1,6 @@
 package com.sxau.cs.file.man.service;
 
-import com.sxau.cs.file.common.model.response.FileInfo;
+import com.sxau.cs.file.man.common.model.response.FileInfo;
 import com.sxau.cs.file.man.service.bean.FileIdQueryCondition;
 import com.sxau.cs.file.man.service.bean.FileInfoBean;
 
@@ -51,5 +51,5 @@ public interface FileService {
      */
     List<Long> queryFileIdsByParentId(long parentId);
 
-    File fileDownload(String fid);
+//    File fileDownload(String fid);
 }

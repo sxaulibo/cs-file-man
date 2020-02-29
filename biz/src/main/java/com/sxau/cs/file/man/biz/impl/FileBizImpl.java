@@ -3,16 +3,17 @@ package com.sxau.cs.file.man.biz.impl;
 import com.google.common.collect.Lists;
 import com.sxau.cs.file.man.biz.FileBiz;
 import com.sxau.cs.file.man.biz.adaptor.FileInfoAdaptor;
+import com.sxau.cs.file.man.common.constant.Constant;
+import com.sxau.cs.file.man.common.model.request.FileCreateRequest;
+import com.sxau.cs.file.man.common.model.request.FileListRequest;
+import com.sxau.cs.file.man.common.model.request.FilePathRequest;
+import com.sxau.cs.file.man.common.model.response.FileDownloadResp;
+import com.sxau.cs.file.man.common.model.response.FileInfo;
+import com.sxau.cs.file.man.common.model.response.FileInfoResponse;
+import com.sxau.cs.file.man.common.model.response.FileListResponse;
 import com.sxau.cs.file.man.service.bean.FileIdQueryCondition;
 import com.sxau.cs.file.man.service.bean.FileInfoBean;
-import com.sxau.cs.file.provider.common.constants.Constant;
-import com.sxau.cs.file.common.model.request.FileCreateRequest;
-import com.sxau.cs.file.common.model.request.FileListRequest;
-import com.sxau.cs.file.common.model.request.FilePathRequest;
-import com.sxau.cs.file.common.model.response.FileDownloadResp;
-import com.sxau.cs.file.common.model.response.FileInfo;
-import com.sxau.cs.file.common.model.response.FileInfoResponse;
-import com.sxau.cs.file.common.model.response.FileListResponse;
+
 import com.sxau.cs.file.man.service.FileService;
 import com.sxau.cs.file.man.service.UserService;
 import org.apache.commons.lang3.StringUtils;
@@ -39,7 +40,7 @@ public class FileBizImpl implements FileBiz {
         int userId = userService.queryUserIdByToken(token);
         Assert.notNull(userId, "token非法");
         FileIdQueryCondition fileIdQueryCondition = new FileIdQueryCondition();
-        long parentFileId = userService.queryFileIdByUserId(String.valueOf(userId));
+        long parentFileId = userService.queryFileIdByUserId(userId);
         List<String> fileNameList = parseFilePath(filePathRequest.getPath());
         for (String fileName : fileNameList) {
             fileIdQueryCondition.setParentId(parentFileId);
@@ -96,15 +97,15 @@ public class FileBizImpl implements FileBiz {
     }
 
     @Override
-    public FileDownloadResp download(String fid, String token) {
+    public void download(String fid, String token) {
         if (!userService.tokenVerification(token)) {
             System.out.println("token失效");
-            return null;
+//            return null;
         } else if (fileService.queryInfoByFileId(Long.valueOf(fid)) == null) {
             System.out.println("文件ID fid 不存在");
         }
         int userId1 = userService.queryUserIdByToken(token);
-        long fileId2 = userService.queryFileIdByUserId(String.valueOf(userId1));
+        long fileId2 = userService.queryFileIdByUserId(userId1);
         FileInfo fileInfo = fileService.queryInfoByFileId(Long.valueOf(fid));
         FileInfo fileInfo1;
         Long fidNow = Long.valueOf(fid);
@@ -113,11 +114,11 @@ public class FileBizImpl implements FileBiz {
         } while (fileInfo1.getParent() != null);
         if (fileInfo1.getFid() != fileId2) {
             System.out.println("");
-            return null;
+//            return null;
         }
         //todo 下载文件
         downloadFile(fid);
-        return null;
+//        return null;
     }
 
 
