@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="FileInfoMapper">
+
+    <resultMap id="fileInfoBean" type="FileInfoBean">
+        <result property="fileId" column="file_id"></result>
+        <result property="name" column="file_name"></result>
+        <result property="size" column="file_size"></result>
+        <result property="path" column="file_path"></result>
+        <result property="creator" column="creator"></result>
+        <result property="editor" column="editor"></result>
+        <result property="createTime" column="c_ctime"></result>
+        <result property="modifyTime" column="c_mtime"></result>
+    </resultMap>
+
+    <select id="queryFileInfoByFileId" parameterType="java.util.List" parameterMap="FileInfoBean">
+        SELECT * FROM file_tb2 WHERE file_id IN (
+        <foreach collection="java.util.List" item="item" separator=","></foreach>)
+    </select>
+
+    <insert id="insertFileInfo" parameterType="FileInfoBean" useGeneratedKeys="true" keyProperty="">
+
+    </insert>
+</mapper>
