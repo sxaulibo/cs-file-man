@@ -40,8 +40,5 @@ public class FileServiceImpl implements FileService {
         return fileRelationMapper.queryFileIdListByParentId(parentId);
     }
 
-    public FileInfo fileDownload(String fid) {
-        return null;
-    }
 
 }

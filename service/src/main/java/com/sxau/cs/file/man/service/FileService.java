@@ -17,7 +17,7 @@ public interface FileService {
      * @param fileId 文件Id
      * @return 文件信息
      */
-    FileInfo queryInfoByFileId(long fileId);
+    FileInfo queryInfoByFileId(Long fileId);
 
     /**
      * 批量查询文件信息
@@ -51,5 +51,5 @@ public interface FileService {
      */
     List<Long> queryFileIdsByParentId(long parentId);
 
-    FileInfo fileDownload(String fid);
+
 }

@@ -6,6 +6,7 @@ import java.io.Serializable;
  * 基础用户请求
  */
 public class BaseUserRequest implements Serializable {
+
     private static final long serialVersionUID = 7442041819965343513L;
 
     /**

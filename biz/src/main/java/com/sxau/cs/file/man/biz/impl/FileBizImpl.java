@@ -12,6 +12,7 @@ import com.sxau.cs.file.man.common.model.response.FileInfo;
 import com.sxau.cs.file.man.common.model.response.FileInfoResponse;
 import com.sxau.cs.file.man.common.model.response.FileListResponse;
 import com.sxau.cs.file.man.service.FileService;
+import com.sxau.cs.file.man.service.Impl.FileServiceImpl;
 import com.sxau.cs.file.man.service.UserService;
 import com.sxau.cs.file.man.service.bean.FileIdQueryCondition;
 import com.sxau.cs.file.man.service.bean.FileInfoBean;
@@ -96,28 +97,37 @@ public class FileBizImpl implements FileBiz {
     }
 
     @Override
-    public FileDownloadResponse download(String fid, String token) {
-        if (!userService.tokenVerification(token)) {
-            System.out.println("token失效");
-            return null;
-        } else if (fileService.queryInfoByFileId(Long.valueOf(fid)) == null) {
-            System.out.println("文件ID fid 不存在");
+    public FileDownloadResponse download(Long fileId, String token) {
+        Integer userId = userService.queryUserIdByToken(token);
+        FileInfo fileInfo = fileService.queryInfoByFileId(fileId);
+        if (!userService.tokenVerification(token) || userId == null) {
+            System.out.println("FileDownload token失效/用户不存在");
+            throw new RuntimeException("FileDownload token失效");
+        } else if (fileInfo == null || fileInfo.getAttr() == 1) {
+            System.out.println("FileDownload 下载目录不存在/下载非文件");
+            throw new RuntimeException("FileDownload 下载目录不存在/下载非文件");
         }
-        Integer userId1 = userService.queryUserIdByToken(token);
-        //todo userId1 判空
-        long fileId2 = userService.queryFileIdByUserId(userId1);
-        FileInfo fileInfo = fileService.queryInfoByFileId(Long.valueOf(fid));
-        FileInfo fileInfo1;
-        Long fidNow = Long.valueOf(fid);
-        do {
-            fileInfo1 = fileService.queryInfoByFileId(Long.valueOf(fidNow));
-        } while (fileInfo1.getParent() != null);
-        if (fileInfo1.getFid() != fileId2) {
-            System.out.println("");
-            return null;
+        Long rootFileId = userService.queryFileIdByUserId(userId);
+        FileIdQueryCondition fileIdQueryCondition = new FileIdQueryCondition();
+        fileIdQueryCondition.setParentId(fileId);
+        Long fileIdFound = fileService.queryFileIdByCondition(fileIdQueryCondition);
+//        FileInfo fileInfo1;
+//        Long fidNow = Long.valueOf(fileId)
+//        do {
+//            fileInfo1 = fileService.queryInfoByFileId(Long.valueOf(fidNow));
+//        } while (fileInfo1.getParent() != null);
+//        if (fileInfo1.getFid() != fileId2) {
+//            System.out.println("");
+//            return null;
+//        }
+        //判断fileIdFound是否对应rootFileId
+        if (!rootFileId.equals(fileIdFound)) {
+            System.out.println("FileDownload 文件数据读取失败");
+            throw new RuntimeException("FileDownload 文件数据读取失败");
         }
         //todo 下载文件
-        downloadFile(fid);
+
+        downloadFile(fileId);
         return null;
     }
 
@@ -136,7 +146,14 @@ public class FileBizImpl implements FileBiz {
         return Arrays.asList(names);
     }
 
-    public FileInfo downloadFile(String fileId) {
+    public FileInfo downloadFile(Long fileId) {
+        FileService fileService = new FileServiceImpl();
+        FileInfo fileInfo = fileService.queryInfoByFileId(fileId);
+        if(fileInfo.getAttr()==1){
+            System.out.println("FileDownload 下载目标非文件");
+            throw new RuntimeException("FileDownload 下载目标非文件");
+        }
+
         return null;
     }
 }

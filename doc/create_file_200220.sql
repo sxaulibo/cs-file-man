@@ -28,7 +28,7 @@ file_id       BIGINT
 file_parent_id
 file_name     VARCHAR
 file_size      BIGINT
-file_path     VARCHAR
+file_path     VARCHAR    绝对路径
 creator       VARCHAR
 editor        VARCHAR
 c_ctime       DATETIME
@@ -45,7 +45,13 @@ file_id->
     c_ctime
     c_mtime
 
-userid_fileid (用户&文件 关联表)    业务上用户id和根文件ID
+fileId_fileCode  (fileId&fileCode)
+file_id
+file_code
+file_id->
+    file_code
+
+user_file (用户&文件)    业务上用户id和根文件ID
 user_id       INT
 user_name
 file_id       BIGINT
@@ -53,7 +59,7 @@ user_id->
     file_id
     user_name
 
-user_token (用户&token 关联表)
+user_token (用户&token)
 user_id       INT
 token         CHAR
 user_token->

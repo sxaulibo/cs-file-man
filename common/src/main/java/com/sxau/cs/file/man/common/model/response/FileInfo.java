@@ -27,7 +27,7 @@ public class FileInfo implements Serializable {
     private long size;
 
     /**
-     * 文件属性值
+     * 文件属性值  0 文件  1  非文件
      */
     private int attr;
 
@@ -55,6 +55,23 @@ public class FileInfo implements Serializable {
      * 文件最后修改者(用户昵称)
      */
     private String editor;
+
+    /**
+     * 文件实际存储位置
+     */
+    private String path;
+
+    public void setParent(Long parent) {
+        this.parent = parent;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
 
     public long getFid() {
         return fid;

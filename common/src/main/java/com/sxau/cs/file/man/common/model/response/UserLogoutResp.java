@@ -1,6 +1,10 @@
 package com.sxau.cs.file.man.common.model.response;
 
-public class UserLogoutResp {
+import java.io.Serializable;
+
+public class UserLogoutResp implements Serializable {
+
+    private static final long serialVersionUID = 3839480150781896102L;
     private String stat;
 
     public String getStat() {

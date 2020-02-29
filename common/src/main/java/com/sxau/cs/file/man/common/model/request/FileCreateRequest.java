@@ -1,6 +1,7 @@
 package com.sxau.cs.file.man.common.model.request;
 
 public class FileCreateRequest extends BaseUserRequest {
+
     private static final long serialVersionUID = -224430073848615222L;
 
     /**

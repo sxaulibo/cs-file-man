@@ -35,7 +35,7 @@ public class FileController {
     }
 
     @ResponseBody
-    public FileDownloadResponse download(@RequestParam String fid, String token) {
+    public FileDownloadResponse download(@RequestParam Long fid, String token) {
         return fileBiz.download(fid, token);
     }
 }

@@ -36,5 +36,5 @@ public interface FileBiz {
      */
     FileInfoResponse createDir(FileCreateRequest fileCreateRequest);
 
-    FileDownloadResponse download(String fid, String token);
+    FileDownloadResponse download(Long fileId, String token);
 }
