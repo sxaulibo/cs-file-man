@@ -14,7 +14,7 @@
         <dependency>
             <groupId>com.sxau.cs</groupId>
             <artifactId>cs-file-man.biz</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
