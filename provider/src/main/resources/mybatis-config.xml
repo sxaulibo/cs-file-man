@@ -6,7 +6,6 @@
 
     <typeAliases>
         <typeAlias type="com.sxau.cs.file.man.service.bean.FileInfoBean" alias="FileInfoBean"/>
-        <typeAlias type=""
     </typeAliases>
 
     <!-- 环境配置，可以配置多个环境 -->

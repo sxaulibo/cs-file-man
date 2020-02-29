@@ -7,7 +7,6 @@ import com.sxau.cs.file.man.common.constant.Constant;
 import com.sxau.cs.file.man.common.model.request.FileCreateRequest;
 import com.sxau.cs.file.man.common.model.request.FileListRequest;
 import com.sxau.cs.file.man.common.model.request.FilePathRequest;
-import com.sxau.cs.file.man.common.model.response.FileDownloadResponse;
 import com.sxau.cs.file.man.common.model.response.FileInfo;
 import com.sxau.cs.file.man.common.model.response.FileInfoResponse;
 import com.sxau.cs.file.man.common.model.response.FileListResponse;
@@ -97,7 +96,7 @@ public class FileBizImpl implements FileBiz {
     }
 
     @Override
-    public FileDownloadResponse download(Long fileId, String token) {
+    public void download(Long fileId, String token) {
         Integer userId = userService.queryUserIdByToken(token);
         FileInfo fileInfo = fileService.queryInfoByFileId(fileId);
         if (!userService.tokenVerification(token) || userId == null) {
@@ -128,7 +127,6 @@ public class FileBizImpl implements FileBiz {
         //todo 下载文件
 
         downloadFile(fileId);
-        return null;
     }
 
 
@@ -146,7 +144,7 @@ public class FileBizImpl implements FileBiz {
         return Arrays.asList(names);
     }
 
-    public FileInfo downloadFile(Long fileId) {
+    public void downloadFile(Long fileId) {
         FileService fileService = new FileServiceImpl();
         FileInfo fileInfo = fileService.queryInfoByFileId(fileId);
         if(fileInfo.getAttr()==1){
@@ -154,6 +152,7 @@ public class FileBizImpl implements FileBiz {
             throw new RuntimeException("FileDownload 下载目标非文件");
         }
 
-        return null;
+
+        System.out.println("下载成功");
     }
 }

@@ -49,7 +49,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean tokenVerification(String token) {
-        return UtilSqlSession.getInstance().getMapper(UserMapper.class).tokenVerification(token);
+        Integer userId = UtilSqlSession.getInstance().getMapper(UserMapper.class).tokenVerification(token);
+        return userId != null;
     }
 
     @Override

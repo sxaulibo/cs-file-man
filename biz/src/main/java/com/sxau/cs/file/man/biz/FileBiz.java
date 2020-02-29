@@ -3,7 +3,6 @@ package com.sxau.cs.file.man.biz;
 import com.sxau.cs.file.man.common.model.request.FileCreateRequest;
 import com.sxau.cs.file.man.common.model.request.FileListRequest;
 import com.sxau.cs.file.man.common.model.request.FilePathRequest;
-import com.sxau.cs.file.man.common.model.response.FileDownloadResponse;
 import com.sxau.cs.file.man.common.model.response.FileInfoResponse;
 import com.sxau.cs.file.man.common.model.response.FileListResponse;
 
@@ -36,5 +35,5 @@ public interface FileBiz {
      */
     FileInfoResponse createDir(FileCreateRequest fileCreateRequest);
 
-    FileDownloadResponse download(Long fileId, String token);
+    void download(Long fileId, String token);
 }
