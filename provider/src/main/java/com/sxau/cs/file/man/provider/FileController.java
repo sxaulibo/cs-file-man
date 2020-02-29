@@ -4,7 +4,6 @@ import com.sxau.cs.file.man.biz.FileBiz;
 import com.sxau.cs.file.man.common.model.request.FileCreateRequest;
 import com.sxau.cs.file.man.common.model.request.FileListRequest;
 import com.sxau.cs.file.man.common.model.request.FilePathRequest;
-import com.sxau.cs.file.man.common.model.response.FileDownloadResponse;
 import com.sxau.cs.file.man.common.model.response.FileInfoResponse;
 import com.sxau.cs.file.man.common.model.response.FileListResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +34,7 @@ public class FileController {
     }
 
     @ResponseBody
-    public FileDownloadResponse download(@RequestParam Long fid, String token) {
-        return fileBiz.download(fid, token);
+    public void download(@RequestParam Long fid, String token) {
+        fileBiz.download(fid, token);
     }
 }
