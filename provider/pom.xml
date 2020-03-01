@@ -14,11 +14,17 @@
         <dependency>
             <groupId>com.sxau.cs</groupId>
             <artifactId>cs-file-man.biz</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
         <finalName>cs-file-man.provider</finalName>
     </build>
 </project>

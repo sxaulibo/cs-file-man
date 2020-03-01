@@ -20,7 +20,8 @@ public class FileServiceImpl implements FileService {
     @Resource
     FileRelationMapper fileRelationMapper;
 
-    public FileInfo queryInfoByFileId(long fileId) {
+    @Override
+    public FileInfo queryInfoByFileId(Long fileId) {
         return queryInfosByFileIds(Lists.newArrayList(fileId)).stream().findAny().orElse(null);
     }
 
