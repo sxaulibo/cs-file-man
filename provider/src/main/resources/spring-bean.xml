@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+    <bean id="dataSource" class="org.apache.ibatis.datasource.pooled.PooledDataSource">
+        <constructor-arg index="0" name="driver" type="java.lang.String" value="com.mysql.cj.jdbc.Driver"/>
+        <constructor-arg index="1" name="url" type="java.lang.String"
+                         value="jdbc:mysql://localhost:3306/csfile?useSSL=false&amp;serverTimezone=UTC"/>
+        <constructor-arg index="2" name="username" type="java.lang.String" value="root"/>
+        <constructor-arg index="3" name="password" type="java.lang.String" value="root"/>
+    </bean>
+    <bean id="transactionFactory" class="org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory"/>
+    <bean id="environment" class="org.apache.ibatis.mapping.Environment">
+        <constructor-arg index="0" name="id" value="mybatisEnvironment"/>
+        <constructor-arg index="1" name="transactionFactory" ref="transactionFactory"/>
+        <constructor-arg index="2" name="dataSource" ref="dataSource"/>
+    </bean>
+    <bean id="configuration" class="org.apache.ibatis.session.Configuration">
+        <constructor-arg ref="environment"/>
+    </bean>
+    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configuration" ref="configuration"/>
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.apache.ibatis.session.defaults.DefaultSqlSessionFactory">
+
+    </bean>
+</beans>

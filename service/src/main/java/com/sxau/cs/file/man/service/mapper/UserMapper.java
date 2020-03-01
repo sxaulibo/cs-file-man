@@ -2,9 +2,11 @@ package com.sxau.cs.file.man.service.mapper;
 
 import com.sxau.cs.file.man.service.bean.UserInfo;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface UserMapper {
 
     Integer queryUserIdByName(String name);

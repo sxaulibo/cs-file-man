@@ -1,26 +1,31 @@
 package com.sxau.cs.file.man.service.Impl;
 
 import com.sxau.cs.file.man.service.UserService;
+import com.sxau.cs.file.man.service.bean.UserInfo;
 import com.sxau.cs.file.man.service.mapper.UserMapper;
 import com.sxau.cs.file.man.service.utils.UtilSqlSession;
-import com.sxau.cs.file.man.service.bean.UserInfo;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
 
-//    /**
+
+    @Resource
+    private UserMapper userMapper;
+    //    /**
 //     * token 生成11位
 //     *
 //     * @return
 //     */
 //    private String tokenGenerate1() {
 //        return RandomStringUtils.randomAlphabetic(11);
-//    }
+//
 
     @Override
     public Integer queryUserIdByName(String name) {
-        return UtilSqlSession.getInstance().getMapper(UserMapper.class).queryUserIdByName(name);
+        UserMapper userMapper = UtilSqlSession.getInstance().getMapper(UserMapper.class);
+        return userMapper.queryUserIdByName(name);
     }
 
     @Override

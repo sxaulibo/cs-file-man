@@ -1,23 +1,33 @@
 package com.sxau.cs.file.man.service.utils;
 
+import org.apache.ibatis.builder.xml.XMLConfigBuilder;
+import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.mapping.Environment;
+import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
+import org.mybatis.spring.SqlSessionFactoryBean;
 
+import javax.annotation.Resource;
 import java.io.IOException;
 import java.io.InputStream;
 
 /**
  * 获取sqlSession实例
- *
  */
 public class UtilSqlSession {
     private static SqlSessionFactory sqlSessionFactory = null;
-
+    @Resource
+    private SqlSessionFactoryBean sqlSessionFactoryBean;
     //私有化构造方法，实现单例
     private UtilSqlSession() {
 
+    }
+    public void libo() throws Exception {
+        sqlSessionFactoryBean.getObject().openSession().
     }
 
     public static SqlSession getInstance() {
@@ -30,6 +40,25 @@ public class UtilSqlSession {
             //读取全局配置文件
             InputStream inputStream = null;
             inputStream = Resources.getResourceAsStream(resource);
+            String driver = "com.mysql.cj.jdbc.Driver";
+            String url = "jdbc:mysql://localhost:3306/csfile?useSSL=false&amp;serverTimezone=UTC";
+            String username = "root";
+            String password = "root";
+
+            Configuration configuration = new Configuration(new Environment
+                    ("mybatisEnvironment",
+                            new JdbcTransactionFactory(),
+                            new PooledDataSource(driver, url, username, password)));
+
+            XMLConfigBuilder xmlConfigBuilder = new XMLConfigBuilder(inputStream);
+            configuration = xmlConfigBuilder.parse();
+
+
+
+//            new XMLMapperBuilder().parse();
+            configuration.getEnvironment();
+            SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+
             //构建SqlSessionFactory对象
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
             SqlSession sqlSession = sqlSessionFactory.openSession(true);
