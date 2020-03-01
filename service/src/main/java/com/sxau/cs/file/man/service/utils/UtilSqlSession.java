@@ -33,6 +33,7 @@ public class UtilSqlSession {
             //构建SqlSessionFactory对象
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
             SqlSession sqlSession = sqlSessionFactory.openSession(true);
+            return sqlSession;
 //            sqlSession.getMapper(UserMapper.class);
         } catch (IOException e) {
             e.printStackTrace();
