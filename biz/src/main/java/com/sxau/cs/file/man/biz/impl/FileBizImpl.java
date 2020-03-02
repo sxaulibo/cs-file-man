@@ -16,6 +16,8 @@ import com.sxau.cs.file.man.service.UserService;
 import com.sxau.cs.file.man.service.bean.FileIdQueryCondition;
 import com.sxau.cs.file.man.service.bean.FileInfoBean;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -147,7 +149,7 @@ public class FileBizImpl implements FileBiz {
     public void downloadFile(Long fileId) {
         FileService fileService = new FileServiceImpl();
         FileInfo fileInfo = fileService.queryInfoByFileId(fileId);
-        if(fileInfo.getAttr()==1){
+        if (fileInfo.getAttr() == 1) {
             System.out.println("FileDownload 下载目标非文件");
             throw new RuntimeException("FileDownload 下载目标非文件");
         }
