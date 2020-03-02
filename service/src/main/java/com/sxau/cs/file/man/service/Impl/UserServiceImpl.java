@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Integer queryUserIdByName(String name) {
-        UserMapper userMapper = UtilSqlSession.getInstance().getMapper(UserMapper.class);
+//        UserMapper userMapper = UtilSqlSession.getInstance().getMapper(UserMapper.class);
         return userMapper.queryUserIdByName(name);
     }
 

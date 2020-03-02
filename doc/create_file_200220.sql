@@ -94,3 +94,9 @@ user_id       INT
 token         CHAR
 user_token->
     user_id
+
+mapper 的实例作为service bean的成员属性，依然被共享。不符合应在函数中即用即毁。（mpper实例壳子确实可以是单例的。mapper中内涵的
+sqlsession是即用即关的。MapperFactoryBean）
+
+托管至：在某一步触发下（某一个mapper类），依赖MapperFactory bean，入参Mapper.class，获取出mapper实例。
+@Resource处，获取bean的时候再次被截获出mapper的实例。

@@ -19,18 +19,17 @@ import java.io.InputStream;
  * 获取sqlSession实例
  */
 public class UtilSqlSession {
-    private static SqlSessionFactory sqlSessionFactory = null;
+//    private static SqlSessionFactory sqlSessionFactory = null;
     @Resource
-    private SqlSessionFactoryBean sqlSessionFactoryBean;
-    //私有化构造方法，实现单例
-    private UtilSqlSession() {
+    private SqlSessionFactory sqlSessionFactory;
 
-    }
-    public void libo() throws Exception {
-        sqlSessionFactoryBean.getObject().openSession().
-    }
+//    //私有化构造方法，实现单例
+//    private UtilSqlSession() {
+//
+//    }
+//
 
-    public static SqlSession getInstance() {
+    public  SqlSession getInstance() {
         try {
             if (sqlSessionFactory != null) {
                 return sqlSessionFactory.openSession(false);

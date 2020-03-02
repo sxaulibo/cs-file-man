@@ -22,7 +22,14 @@
         <property name="configuration" ref="configuration"/>
     </bean>
 
-    <bean id="sqlSessionFactory" class="org.apache.ibatis.session.defaults.DefaultSqlSessionFactory">
-
+    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean"/>
+        <property name="basePackage" value="classpath*:com.sxau.cs.file.man.service.mapper/"/>
     </bean>
+<!--    <bean id="sqlSessionFactory" class="org.apache.ibatis.session.defaults.DefaultSqlSessionFactory">-->
+<!--        <constructor-arg name="configuration" value=""/> -->
+<!--    </bean>-->
+<!--    <bean id="" class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+<!--        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>-->
+<!--    </bean>-->
 </beans>
