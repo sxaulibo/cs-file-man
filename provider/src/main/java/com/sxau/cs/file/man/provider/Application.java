@@ -1,12 +1,18 @@
 package com.sxau.cs.file.man.provider;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ImportResource;
 
 import java.util.Arrays;
 
+@ComponentScan(basePackages = {"com.sxau.cs.file.man"})
+@MapperScan(basePackages = "com.sxau.cs.file.man.service.mapper")
+@ImportResource({"classpath:spring/*.xml"})
 public class Application {
 
     public static void main(String[] args) {
