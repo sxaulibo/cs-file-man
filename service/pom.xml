@@ -16,10 +16,10 @@
             <artifactId>cs-file-man.common</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
         <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-spring</artifactId>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>3.1.0</version>
         </dependency>
     </dependencies>
 </project>
