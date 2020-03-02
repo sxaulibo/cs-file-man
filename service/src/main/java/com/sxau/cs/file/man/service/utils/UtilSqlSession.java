@@ -39,24 +39,24 @@ public class UtilSqlSession {
             //读取全局配置文件
             InputStream inputStream = null;
             inputStream = Resources.getResourceAsStream(resource);
-            String driver = "com.mysql.cj.jdbc.Driver";
-            String url = "jdbc:mysql://localhost:3306/csfile?useSSL=false&amp;serverTimezone=UTC";
-            String username = "root";
-            String password = "root";
-
-            Configuration configuration = new Configuration(new Environment
-                    ("mybatisEnvironment",
-                            new JdbcTransactionFactory(),
-                            new PooledDataSource(driver, url, username, password)));
-
-            XMLConfigBuilder xmlConfigBuilder = new XMLConfigBuilder(inputStream);
-            configuration = xmlConfigBuilder.parse();
-
-
-
-//            new XMLMapperBuilder().parse();
-            configuration.getEnvironment();
-            SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+//            String driver = "com.mysql.cj.jdbc.Driver";
+//            String url = "jdbc:mysql://localhost:3306/csfile?useSSL=false&amp;serverTimezone=UTC";
+//            String username = "root";
+//            String password = "root";
+//
+//            Configuration configuration = new Configuration(new Environment
+//                    ("mybatisEnvironment",
+//                            new JdbcTransactionFactory(),
+//                            new PooledDataSource(driver, url, username, password)));
+//
+//            XMLConfigBuilder xmlConfigBuilder = new XMLConfigBuilder(inputStream);
+//            configuration = xmlConfigBuilder.parse();
+//
+//
+//
+////            new XMLMapperBuilder().parse();
+//            configuration.getEnvironment();
+//            SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
 
             //构建SqlSessionFactory对象
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
