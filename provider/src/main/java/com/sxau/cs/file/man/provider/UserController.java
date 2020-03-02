@@ -5,61 +5,26 @@ import com.sxau.cs.file.man.common.model.request.UserLoginRequest;
 import com.sxau.cs.file.man.common.model.request.UserLogoutReq;
 import com.sxau.cs.file.man.common.model.response.UserLoginResponse;
 import com.sxau.cs.file.man.common.model.response.UserLogoutResp;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.io.IOException;
 
-@Controller
+@RestController
 public class UserController {
 
     @Resource
-    private static UserBiz userBiz;
+    private UserBiz userBiz;
+
     @RequestMapping("/nameLogin")
     public UserLoginResponse nameLogin(@RequestBody UserLoginRequest userLoginRequest) {
         return userBiz.nameLogin(userLoginRequest);
     }
 
     @RequestMapping("/logout")
-    public UserLogoutResp logout(UserLogoutReq userLogoutReq) {
+    public UserLogoutResp logout(@RequestBody UserLogoutReq userLogoutReq) {
         return userBiz.logout(userLogoutReq);
     }
 
-    @RequestMapping("/download")
-    public String download(@RequestParam("fid") String fid) throws IOException {
-//        FileService fileService = new FileServiceImpl();
-//        FileInfo fileInfoBean = fileService.queryInfoByFileCode(fid);
-//        System.out.println(fileInfoBean.getPath());
-//        if (fileInfoBean.getPath().equals("")) {
-//            throw new RuntimeException("文件找不到");
-//        }
-//        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-//        HttpServletResponse response = requestAttributes != null ? requestAttributes.getResponse() : null;
-//        Objects.requireNonNull(response).setContentType("application/octet-stream");
-//        response.setCharacterEncoding("UTF-8");
-//        response.setHeader("Content-Disposition", "attachment;filename=" + new String(fileInfoBean.getFileName().getBytes(StandardCharsets.UTF_8), "ISO8859-1"));
-//        //把目录下存在的文件转换成流
-//        Writer writer = response.getWriter();
-//        try (InputStreamReader inputStreamReader = new FileReader(new File(fileInfoBean.getPath()))) {
-//
-//            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-//            String temp;
-//            while ((temp = bufferedReader.readLine()) != null) {
-//                writer.append(temp);
-//                writer.append('\n');
-//                writer.flush();
-//            }
-//            writer.close();
-//            return "";
-//        }
-        return "";
-    }
-
-    @RequestMapping("/upload")
-    public String upload(String json) {
-        return null;
-    }
 }
