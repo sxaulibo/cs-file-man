@@ -5,14 +5,18 @@ import com.sxau.cs.file.man.common.model.request.UserLoginRequest;
 import com.sxau.cs.file.man.common.model.request.UserLogoutReq;
 import com.sxau.cs.file.man.common.model.response.UserLoginResponse;
 import com.sxau.cs.file.man.common.model.response.UserLogoutResp;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.annotation.Resource;
 import java.io.IOException;
 
+@Controller
 public class UserController {
 
+    @Resource
     private static UserBiz userBiz;
     @RequestMapping("/nameLogin")
     public UserLoginResponse nameLogin(@RequestBody UserLoginRequest userLoginRequest) {

@@ -1,5 +1,6 @@
 package com.sxau.cs.file.man.service.utils;
 
+import com.sxau.cs.file.man.service.FileService;
 import org.apache.ibatis.builder.xml.XMLConfigBuilder;
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.io.Resources;
@@ -10,6 +11,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.annotation.Resource;
 import java.io.IOException;
@@ -39,24 +42,24 @@ public class UtilSqlSession {
             //读取全局配置文件
             InputStream inputStream = null;
             inputStream = Resources.getResourceAsStream(resource);
-            String driver = "com.mysql.cj.jdbc.Driver";
-            String url = "jdbc:mysql://localhost:3306/csfile?useSSL=false&amp;serverTimezone=UTC";
-            String username = "root";
-            String password = "root";
-
-            Configuration configuration = new Configuration(new Environment
-                    ("mybatisEnvironment",
-                            new JdbcTransactionFactory(),
-                            new PooledDataSource(driver, url, username, password)));
-
-            XMLConfigBuilder xmlConfigBuilder = new XMLConfigBuilder(inputStream);
-            configuration = xmlConfigBuilder.parse();
-
-
-
-//            new XMLMapperBuilder().parse();
-            configuration.getEnvironment();
-            SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+//            String driver = "com.mysql.cj.jdbc.Driver";
+//            String url = "jdbc:mysql://localhost:3306/csfile?useSSL=false&amp;serverTimezone=UTC";
+//            String username = "root";
+//            String password = "root";
+//
+//            Configuration configuration = new Configuration(new Environment
+//                    ("mybatisEnvironment",
+//                            new JdbcTransactionFactory(),
+//                            new PooledDataSource(driver, url, username, password)));
+//
+//            XMLConfigBuilder xmlConfigBuilder = new XMLConfigBuilder(inputStream);
+//            configuration = xmlConfigBuilder.parse();
+//
+//
+//
+////            new XMLMapperBuilder().parse();
+//            configuration.getEnvironment();
+//            SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
 
             //构建SqlSessionFactory对象
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
@@ -69,5 +72,12 @@ public class UtilSqlSession {
         }
         throw new RuntimeException("getSqlSession IOException");
         //return null;这里new异常是直接异常了,不走后面的逻辑代码;
+//        FileService fileService1;
+//        ApplicationContext context = new ClassPathXmlApplicationContext();
+//        FileBizImpl fileBiz =context.getBean("libo", FileBizImpl.class);
+//        fileService1 = fileBiz.fileService;
+
+
+
     }
 }
