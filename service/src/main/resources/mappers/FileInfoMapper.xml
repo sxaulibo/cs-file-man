@@ -14,7 +14,7 @@
         <result property="modifyTime" column="c_mtime"></result>
     </resultMap>
 
-    <select id="queryFileInfoByFileId" parameterType="java.util.List" parameterMap="com.sxau.cs.file.man.service.bean.FileInfoBean">
+    <select id="queryFileInfoByFileId" parameterType="java.util.List" resultMap="fileInfoBean">
         SELECT * FROM file_tb2 WHERE file_id IN (
         <foreach collection="java.util.List" item="item" separator=","></foreach>)
     </select>

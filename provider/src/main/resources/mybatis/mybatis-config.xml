@@ -8,7 +8,7 @@
             <transactionManager type="org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory"/>
             <dataSource type="org.apache.ibatis.datasource.pooled.PooledDataSourceFactory">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/csfile?useSSL=false&amp;serverTimezone=UTC"/>
+                <property name="url" value="jdbc:mysql://192.168.43.185:3306/csfile?useSSL=false&amp;serverTimezone=UTC"/>
                 <property name="username" value="root"/>
                 <property name="password" value="root"/>
             </dataSource>

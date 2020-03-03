@@ -4,8 +4,8 @@
 <mapper namespace="com.sxau.cs.file.man.service.mapper.UserMapper">
 
     <resultMap id="LiBo" type="com.sxau.cs.file.man.service.bean.UserInfo">
-        <result property="name" column="file_name"/>
-        <result property="password" column="file_password"/>
+        <result property="name" column="user_name"/>
+        <result property="password" column="user_pwd"/>
 
     </resultMap>
     <insert id="insertToken">
@@ -19,7 +19,7 @@
              WHERE token = #{token}
         </update>
 
-    <select id="queryUserInfoByName" parameterType="String" resultType="Integer">
+    <select id="queryUserIdByName" parameterType="String" resultType="Integer">
              SELECT *
              FROM user_tb1 WHERE user_name = #{name}
      </select>
