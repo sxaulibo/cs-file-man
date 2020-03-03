@@ -1,18 +1,9 @@
 package com.sxau.cs.file.man.service.utils;
 
-import com.sxau.cs.file.man.service.FileService;
-import org.apache.ibatis.builder.xml.XMLConfigBuilder;
-import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.mapping.Environment;
-import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
-import org.mybatis.spring.SqlSessionFactoryBean;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.annotation.Resource;
 import java.io.IOException;
@@ -77,7 +68,15 @@ public class UtilSqlSession {
 //        FileBizImpl fileBiz =context.getBean("libo", FileBizImpl.class);
 //        fileService1 = fileBiz.fileService;
 
-
+        //    private SqlSession getSqlSession() throws IOException {
+//        //指定mybatis全局配置文件
+//        String resource = "mybatis-config.xml";
+//        //读取全局配置文件
+//        InputStream inputStream = Resources.getResourceAsStream(resource);
+//        //构建SqlSessionFactory对象
+//        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+//        return sqlSessionFactory.openSession(false);
+//    }
 
     }
     public static void main(String[] args){
