@@ -1,4 +1,4 @@
-package com.sxau.cs.file.man.provider;
+package com.sxau.cs.file.man.provider.controller;
 
 import com.sxau.cs.file.man.biz.UserBiz;
 import com.sxau.cs.file.man.common.model.request.UserLoginRequest;

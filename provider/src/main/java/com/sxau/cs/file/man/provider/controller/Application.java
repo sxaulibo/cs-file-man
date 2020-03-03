@@ -1,4 +1,4 @@
-package com.sxau.cs.file.man.provider;
+package com.sxau.cs.file.man.provider.controller;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
