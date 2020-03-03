@@ -3,7 +3,6 @@ package com.sxau.cs.file.man.service.Impl;
 import com.sxau.cs.file.man.service.UserService;
 import com.sxau.cs.file.man.service.bean.UserInfo;
 import com.sxau.cs.file.man.service.mapper.UserMapper;
-import com.sxau.cs.file.man.service.utils.UtilSqlSession;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -17,7 +16,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Integer queryUserIdByName(String name) {
-//        UserMapper userMapper = UtilSqlSession.getInstance().getMapper(UserMapper.class);
         return userMapper.queryUserIdByName(name);
     }
 
