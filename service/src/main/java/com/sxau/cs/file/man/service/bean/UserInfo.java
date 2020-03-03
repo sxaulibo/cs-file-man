@@ -1,6 +1,7 @@
 package com.sxau.cs.file.man.service.bean;
 
 public class UserInfo {
+
     private String name;
     private String password;
 

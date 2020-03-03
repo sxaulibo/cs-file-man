@@ -29,7 +29,7 @@
              FROM user_token WHERE token = #{token}
     </select>
 
-    <select id="queryUserInfoByUserId" parameterType="Integer" resultType="LiBo">
+    <select id="queryUserInfoByUserId" parameterType="Integer" resultMap="LiBo">
              SELECT *
              FROM user_tb1 WHERE user_id = #{userId}
     </select>

@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sxau.cs.file.man.service.mapper.FileInfoMapper">
 
-    <resultMap id="fileInfoBean" type="FileInfoBean">
+    <resultMap id="fileInfoBean" type="com.sxau.cs.file.man.service.bean.FileInfoBean">
         <result property="fileId" column="file_id"></result>
         <result property="name" column="file_name"></result>
         <result property="size" column="file_size"></result>
@@ -19,7 +19,7 @@
         <foreach collection="java.util.List" item="item" separator=","></foreach>)
     </select>
 
-    <insert id="insertFileInfo" parameterType="FileInfoBean" useGeneratedKeys="true" keyProperty="">
+    <insert id="insertFileInfo" parameterType="com.sxau.cs.file.man.service.bean.FileInfoBean" useGeneratedKeys="true" keyProperty="">
 
     </insert>
 </mapper>
