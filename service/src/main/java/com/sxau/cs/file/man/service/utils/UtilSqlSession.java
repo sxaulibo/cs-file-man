@@ -80,4 +80,7 @@ public class UtilSqlSession {
 
 
     }
+    public static void main(String[] args){
+
+    }
 }
