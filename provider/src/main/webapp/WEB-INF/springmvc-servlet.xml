@@ -9,6 +9,6 @@
 
     <mvc:annotation-driven/>
 
-    <context:component-scan base-package="com.sxau.cs.file.man.provider"/>
+    <context:component-scan base-package="com.sxau.cs.file.man.provider.controller"/>
 
 </beans>
