@@ -14,6 +14,7 @@ import org.springframework.util.Assert;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Objects;
 
 @Component
 public class UserBizImpl implements UserBiz {
@@ -32,7 +33,7 @@ public class UserBizImpl implements UserBiz {
         //校验是否查到用户ID
         Integer userId = userService.queryUserIdByName(userLoginRequest.getName());
         List<UserInfo> userInfoList = userService.queryUserInfoByUserId(userId);
-        if (userId == null || userInfoList.size() == 0 || userInfoList.get(0).getPassword() != userLoginRequest.getPassword()) {
+        if (userId == null || userInfoList.size() == 0 || !Objects.equals(userInfoList.get(0).getPassword(), userLoginRequest.getPassword())) {
             System.out.println("用户不存在/登陆密码错误");
             userLoginResponse.setStat(Constant.Stat.ERROR);
             return userLoginResponse;

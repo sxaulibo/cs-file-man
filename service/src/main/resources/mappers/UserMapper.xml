@@ -14,7 +14,7 @@
      </insert>
 
     <update id="deleteToken" parameterType="String">
-             DELETE token
+             DELETE
              FROM user_token
              WHERE token = #{token}
         </update>
