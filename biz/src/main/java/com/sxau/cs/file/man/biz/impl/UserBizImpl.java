@@ -34,7 +34,7 @@ public class UserBizImpl implements UserBiz {
         Integer userId = userService.queryUserIdByName(userLoginRequest.getName());
         List<UserInfo> userInfoList = userService.queryUserInfoByUserId(userId);
         if (userId == null || userInfoList.size() == 0 || !Objects.equals(userInfoList.get(0).getPassword(), userLoginRequest.getPassword())) {
-            System.out.println("用户不存在/登陆密码错误");
+            System.out.println("用户登录 用户不存在/登陆密码错误");
             userLoginResponse.setStat(Constant.Stat.ERROR);
             return userLoginResponse;
         }
@@ -45,6 +45,7 @@ public class UserBizImpl implements UserBiz {
         }
         userLoginResponse.setStat(Constant.Stat.OK);
         userLoginResponse.setToken(token);
+        System.out.println("用户登录 登陆成功");
         return userLoginResponse;
     }
 
