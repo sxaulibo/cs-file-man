@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `fileid_filecode`(
 CREATE TABLE IF NOT EXISTS `user_file`(
     `user_id` INT NOT NULL,
    `file_id` VARCHAR(40)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;  这里需要再在mapper中添加这个表的查询
 
 CREATE TABLE IF NOT EXISTS `user_token`(
     `user_id` INT NOT NULL,

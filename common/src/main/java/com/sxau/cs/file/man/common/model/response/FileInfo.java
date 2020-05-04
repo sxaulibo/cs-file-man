@@ -61,6 +61,11 @@ public class FileInfo implements Serializable {
      */
     private String path;
 
+    /**
+     * remote fileCode,需要在建表语句中进行设计
+     */
+    private String fileCode;
+
     public void setParent(Long parent) {
         this.parent = parent;
     }
@@ -151,5 +156,13 @@ public class FileInfo implements Serializable {
 
     public void setEditor(String editor) {
         this.editor = editor;
+    }
+
+    public String getFileCode() {
+        return fileCode;
+    }
+
+    public void setFileCode(String fileCode) {
+        this.fileCode = fileCode;
     }
 }
