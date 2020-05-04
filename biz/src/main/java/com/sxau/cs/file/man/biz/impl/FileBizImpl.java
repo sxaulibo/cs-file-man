@@ -10,12 +10,14 @@ import com.sxau.cs.file.man.common.model.request.FilePathRequest;
 import com.sxau.cs.file.man.common.model.response.FileInfo;
 import com.sxau.cs.file.man.common.model.response.FileInfoResponse;
 import com.sxau.cs.file.man.common.model.response.FileListResponse;
+import com.sxau.cs.file.man.common.utils.DubboContextUtil;
 import com.sxau.cs.file.man.service.FileService;
 import com.sxau.cs.file.man.service.Impl.FileServiceImpl;
 import com.sxau.cs.file.man.service.UserService;
 import com.sxau.cs.file.man.service.bean.FileIdQueryCondition;
 import com.sxau.cs.file.man.service.bean.FileInfoBean;
 import com.sxau.cs.file.store.api.common.model.request.FileDownloadRequest;
+import com.sxau.cs.file.store.api.common.model.response.FileDownloadResponse;
 import com.sxau.cs.file.store.api.remote.FileStoreRemote;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.ApplicationContext;
@@ -155,9 +157,11 @@ public class FileBizImpl implements FileBiz {
         }
         FileDownloadRequest fileDownloadRequest = new FileDownloadRequest();
         fileDownloadRequest.setFileCode(fileInfo.getFileCode());
+        FileStoreRemote fileStoreRemote = (FileStoreRemote)DubboContextUtil.getInstance().getBean("fileStoreRemote");
+        fileStoreRemote.download(fileDownloadRequest);
 
-        FileStoreRemote fileStoreRemote = (FileStoreRemote)context.getBean("fileStoreRemote");
-        fileStoreRemote.download();
+
+        FileDownloadResponse
         System.out.println("下载成功");
     }
 }
