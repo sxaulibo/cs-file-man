@@ -25,8 +25,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -102,7 +108,7 @@ public class FileBizImpl implements FileBiz {
     }
 
     @Override
-    public void download(Long fileId, String token) {
+    public void download(Long fileId, String token) throws Exception {
         Integer userId = userService.queryUserIdByToken(token);
         FileInfo fileInfo = fileService.queryInfoByFileId(fileId);
         if (!userService.tokenVerification(token) || userId == null) {
@@ -148,7 +154,7 @@ public class FileBizImpl implements FileBiz {
         return Arrays.asList(names);
     }
 
-    public void downloadFile(Long fileId) {
+    public void downloadFile(Long fileId) throws IOException {
         FileService fileService = new FileServiceImpl();
         FileInfo fileInfo = fileService.queryInfoByFileId(fileId);
         if (fileInfo.getAttr() == 1) {
@@ -157,11 +163,37 @@ public class FileBizImpl implements FileBiz {
         }
         FileDownloadRequest fileDownloadRequest = new FileDownloadRequest();
         fileDownloadRequest.setFileCode(fileInfo.getFileCode());
-        FileStoreRemote fileStoreRemote = (FileStoreRemote)DubboContextUtil.getInstance().getBean("fileStoreRemote");
-        fileStoreRemote.download(fileDownloadRequest);
+        FileStoreRemote fileStoreRemote = (FileStoreRemote) DubboContextUtil.getInstance().getBean("fileStoreRemote");
+        FileDownloadResponse fileDownloadResponse = fileStoreRemote.download(fileDownloadRequest);
+        //todo 文件的相对位置
+        File file = new File("/a.txt");
+        FileOutputStream fileOutputStream;
+        try {
+            fileOutputStream = new FileOutputStream(file);
+            fileOutputStream.write(fileDownloadResponse.getFileByteArray());
+            fileOutputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletResponse response = requestAttributes != null ? requestAttributes.getResponse() : null;
+        Objects.requireNonNull(response).setContentType("application/octet-stream");
+        response.setCharacterEncoding("UTF-8");
+        response.setHeader("Content-Disposition", "attachment;filename=" + new String(fileInfo.getName().getBytes(StandardCharsets.UTF_8), "ISO8859-1"));
+        //把目录下存在的文件转换成流
+        Writer writer = response.getWriter();
+        MultipartFile multipartFile = null;
+        try (InputStreamReader inputStreamReader = new FileReader(file)) {
 
-
-        FileDownloadResponse
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            String temp;
+            while ((temp = bufferedReader.readLine()) != null) {
+                writer.append(temp);
+                writer.append('\n');
+                writer.flush();
+            }
+            writer.close();
+        }
         System.out.println("下载成功");
     }
 }
