@@ -1,11 +1,13 @@
 package com.sxau.cs.file.man.provider.controller;
 
 import com.sxau.cs.file.man.biz.FileBiz;
+import com.sxau.cs.file.man.common.model.beans.LoginUserInfo;
 import com.sxau.cs.file.man.common.model.request.FileCreateRequest;
 import com.sxau.cs.file.man.common.model.request.FileListRequest;
 import com.sxau.cs.file.man.common.model.request.FilePathRequest;
 import com.sxau.cs.file.man.common.model.response.FileInfoResponse;
 import com.sxau.cs.file.man.common.model.response.FileListResponse;
+import com.sxau.cs.file.man.provider.annotation.LoginUser;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -36,4 +38,8 @@ public class FileController {
         fileBiz.download(fid, token);
     }
 
+    @GetMapping("/test")
+    public void test(@LoginUser LoginUserInfo loginUserInfo, @RequestParam String testString) {
+        System.out.println("" + testString + loginUserInfo.getUserName());
+    }
 }
