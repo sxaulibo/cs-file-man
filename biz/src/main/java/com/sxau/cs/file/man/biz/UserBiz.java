@@ -1,5 +1,6 @@
 package com.sxau.cs.file.man.biz;
 
+import com.sxau.cs.file.man.common.model.beans.LoginUserInfo;
 import com.sxau.cs.file.man.common.model.request.UserLoginRequest;
 import com.sxau.cs.file.man.common.model.request.UserLogoutReq;
 import com.sxau.cs.file.man.common.model.response.UserLoginResponse;
@@ -24,4 +25,6 @@ public interface UserBiz {
      * @return 用户登出响应
      */
     UserLogoutResp logout(UserLogoutReq userLogoutReq);
+
+    LoginUserInfo getLoginUserInfo();
 }

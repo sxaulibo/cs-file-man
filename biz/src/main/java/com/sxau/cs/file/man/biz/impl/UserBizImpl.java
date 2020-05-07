@@ -2,6 +2,7 @@ package com.sxau.cs.file.man.biz.impl;
 
 import com.sxau.cs.file.man.biz.UserBiz;
 import com.sxau.cs.file.man.common.constant.Constant;
+import com.sxau.cs.file.man.common.model.beans.LoginUserInfo;
 import com.sxau.cs.file.man.common.model.request.UserLoginRequest;
 import com.sxau.cs.file.man.common.model.request.UserLogoutReq;
 import com.sxau.cs.file.man.common.model.response.UserLoginResponse;
@@ -68,5 +69,11 @@ public class UserBizImpl implements UserBiz {
         }
         userLogoutResp.setStat(Constant.Stat.OK);
         return userLogoutResp;
+    }
+
+    @Override
+    public LoginUserInfo getLoginUserInfo() {
+        //todo 自定义业务逻辑
+        return null;
     }
 }
