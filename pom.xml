@@ -23,7 +23,7 @@
     </modules>
 
     <properties>
-        <spring-boot-starter-web.version>2.2.2.RELEASE</spring-boot-starter-web.version>
+        <spring-boot-starter-web.version>2.5.12</spring-boot-starter-web.version>
         <mysql-connector-java.version>8.0.15</mysql-connector-java.version>
         <commons-lang3.version>3.7</commons-lang3.version>
         <guava.version>19.0</guava.version>
